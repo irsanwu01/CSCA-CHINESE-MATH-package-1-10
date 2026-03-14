@@ -321,21 +321,25 @@
         let users = JSON.parse(localStorage.getItem('csca_users')) || [];
         let sessions = JSON.parse(localStorage.getItem('csca_sessions')) || [];
 
-        // ==================== DEVICE FINGERPRINT ====================
-        function getDeviceFingerprint() {
-            const screen = `${screen.width}x${screen.height}x${screen.colorDepth}`;
-            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            const language = navigator.language;
-            const platform = navigator.platform;
-            const userAgent = navigator.userAgent;
-            
-            let fingerprint = `${screen}|${timezone}|${language}|${platform}|${userAgent}`;
-            let hash = 0;
-            for (let i = 0; i < fingerprint.length; i++) {
-                hash = ((hash << 5) - hash) + fingerprint.charCodeAt(i);
-                hash = hash & hash;
-            }
-            return hash.toString(16);
+       // ==================== DEVICE FINGERPRINT ====================
+function getDeviceFingerprint() {
+    // Gunakan window.screen dan nama variabel berbeda
+    const screenInfo = window.screen.width + 'x' + window.screen.height + 'x' + window.screen.colorDepth;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const language = navigator.language;
+    const platform = navigator.platform;
+    const userAgent = navigator.userAgent;
+    
+    let fingerprintString = screenInfo + '|' + timezone + '|' + language + '|' + platform + '|' + userAgent;
+    let hash = 0;
+    
+    for (let i = 0; i < fingerprintString.length; i++) {
+        hash = ((hash << 5) - hash) + fingerprintString.charCodeAt(i);
+        hash = hash & hash;
+    }
+    
+    return hash.toString(16);
+}
         }
 
         // ==================== SESSION MANAGEMENT ====================
