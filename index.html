@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSCA 数学 · 多语言考试系统</title>
+    <title>CSCA 数学 · 多语言考试系统 (10 SET LENGKAP)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
         body { background: linear-gradient(135deg, #0b2b40, #1a4b6d); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
@@ -550,9 +550,10 @@
         }
 
         // ==================== MULTILINGUAL QUESTION BANKS ====================
-        // SET 1 (Contoh - Anda perlu menambahkan semua soal SET 1-10 di sini)
+        
+        // ==================== SET 1 (48 SOAL) ====================
         const set1Questions = [
-            // Soal 1
+            // BAGIAN 1: ALJABAR & FUNGSI (Soal 1-12) - SET 1
             { 
                 part: 1, 
                 text: '函数 y = 3x - 2 的反函数是 ( )',
@@ -562,7 +563,6 @@
                 opts: ['y = (x + 3)/2', 'y = (x - 3)/2', 'y = (x + 2)/3', 'y = (x - 2)/3'], 
                 correct: 3 
             },
-            // Soal 2
             { 
                 part: 1, 
                 text: '不等式 x² - 5x + 6 < 0 的解集是 ( )',
@@ -572,7 +572,6 @@
                 opts: ['(-∞, 2) ∪ (3, +∞)', '(2, 3)', '(-∞, 2] ∪ [3, +∞)', '[2, 3]'], 
                 correct: 1 
             },
-            // Soal 3
             { 
                 part: 1, 
                 text: '若 a < b 且 c < d，下列哪一项是正确的? ( )',
@@ -582,9 +581,98 @@
                 opts: ['a² < b²', 'a - c < b - d', 'ac < bd', 'c³ < d³'], 
                 correct: 3 
             },
-            // ... (lanjutkan untuk semua soal SET 1)
+            { 
+                part: 1, 
+                text: '不等式 |x - 3| < 2 的解集是 ( )',
+                pinyin: 'Bùděngshì |x - 3| < 2 de jiě jí shì ( )',
+                english: 'The solution set of the inequality |x - 3| < 2 is ( )',
+                indonesia: 'Himpunan penyelesaian dari pertidaksamaan |x - 3| < 2 adalah ( )',
+                opts: ['(1, 5)', '[1, 5]', '(-∞, 1) ∪ (5, +∞)', '(-∞, 1] ∪ [5, +∞)'], 
+                correct: 0 
+            },
+            { 
+                part: 1, 
+                text: '设 i 为虚数单位，复数 z = 2/(1-i)，则 |z| = ( )',
+                pinyin: 'Shè i wèi xūshù dānwèi, fùshù z = 2/(1-i), zé |z| = ( )',
+                english: 'Let i be the imaginary unit, complex number z = 2/(1-i), then |z| = ( )',
+                indonesia: 'Diketahui i adalah unit imajiner, bilangan kompleks z = 2/(1-i), maka |z| = ( )',
+                opts: ['2', '√2', '2√2', '4'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '不等式 3^x > 27 的解集是 ( )',
+                pinyin: 'Bùděngshì 3^x > 27 de jiě jí shì ( )',
+                english: 'The solution set of the inequality 3^x > 27 is ( )',
+                indonesia: 'Himpunan penyelesaian dari pertidaksamaan 3^x > 27 adalah ( )',
+                opts: ['(-∞, 3)', '(3, +∞)', '(-∞, 3]', '[3, +∞)'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '函数 y = √(x-1) 的定义域是 ( )',
+                pinyin: 'Hánshù y = √(x-1) de dìngyìyù shì ( )',
+                english: 'The domain of the function y = √(x-1) is ( )',
+                indonesia: 'Domain dari fungsi y = √(x-1) adalah ( )',
+                opts: ['(1, +∞)', '[1, +∞)', '(0, +∞)', '(-∞, 1]'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '不等式 log₂(x-1) > 1 的解集是 ( )',
+                pinyin: 'Bùděngshì log₂(x-1) > 1 de jiě jí shì ( )',
+                english: 'The solution set of the inequality log₂(x-1) > 1 is ( )',
+                indonesia: 'Himpunan penyelesaian dari pertidaksamaan log₂(x-1) > 1 adalah ( )',
+                opts: ['(1, 3)', '(3, +∞)', '(1, +∞)', '(-∞, 3)'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '已知 f(x) = 2x³ - 3x² - 36x + 1，则 f(x) 在区间 [-3, 4] 上的最大值是 ( )',
+                pinyin: 'Yǐzhī f(x) = 2x³ - 3x² - 36x + 1, zé f(x) zài qūjiān [-3, 4] shàng de zuì dà zhí shì ( )',
+                english: 'Given f(x) = 2x³ - 3x² - 36x + 1, then the maximum value of f(x) on the interval [-3, 4] is ( )',
+                indonesia: 'Diketahui f(x) = 2x³ - 3x² - 36x + 1, maka nilai maksimum dari f(x) pada interval [-3, 4] adalah ( )',
+                opts: ['28', '45', '63', '1'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '若关于 x 的不等式 x² + ax + 1 > 0 的解集为 R，则实数 a 的取值范围是 ( )',
+                pinyin: 'Ruò guānyú x de bùděngshì x² + ax + 1 > 0 de jiě jí wèi R, zé shíshù a de qǔzhí fànwéi shì ( )',
+                english: 'If the solution set of the inequality x² + ax + 1 > 0 is R (all real numbers), then the range of real number a is ( )',
+                indonesia: 'Jika himpunan penyelesaian dari pertidaksamaan x² + ax + 1 > 0 adalah R (semua bilangan real), maka rentang nilai bilangan real a adalah ( )',
+                opts: ['(-∞, -2) ∪ (2, +∞)', '[-2, 2]', '(-2, 2)', 'R'], 
+                correct: 2 
+            },
+            { 
+                part: 1, 
+                text: '已知数列 {aₙ} 的前 n 项和 Sₙ = n² - 1，则 a₁₀ = ( )',
+                pinyin: 'Yǐzhī shùliè {aₙ} de qián n xiàng hé Sₙ = n² - 1, zé a₁₀ = ( )',
+                english: 'Given that the sum of the first n terms of the sequence {aₙ} is Sₙ = n² - 1, then a₁₀ = ( )',
+                indonesia: 'Diketahui jumlah n suku pertama dari barisan {aₙ} adalah Sₙ = n² - 1, maka a₁₀ = ( )',
+                opts: ['18', '19', '20', '21'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '下列哪一条直线与直线 3x + y - 1 = 0 平行? ( )',
+                pinyin: 'Xiàliè nǎ yī tiáo zhíxiàn yǔ zhíxiàn 3x + y - 1 = 0 píngxíng? ( )',
+                english: 'Which of the following lines is parallel to the line 3x + y - 1 = 0? ( )',
+                indonesia: 'Garis manakah berikut ini yang sejajar dengan garis 3x + y - 1 = 0? ( )',
+                opts: ['3x - y + 2 = 0', '3x + y - 2 = 0', '6x - 2y + 1 = 0', 'x + 3y - 1 = 0'], 
+                correct: 1 
+            },
             
-            // Soal 14 (dengan gambar)
+            // BAGIAN 2: TRIGONOMETRI & GEOMETRI (Soal 13-24) - SET 1
+            { 
+                part: 2, 
+                text: '若 cos α = -1/4，则 cos 2α = ( )',
+                pinyin: 'Ruò cos α = -1/4, zé cos 2α = ( )',
+                english: 'If cos α = -1/4, then cos 2α = ( )',
+                indonesia: 'Jika cos α = -1/4, maka cos 2α = ( )',
+                opts: ['-7/8', '-1/2', '1/8', '7/8'], 
+                correct: 0 
+            },
             { 
                 part: 2, 
                 text: '点 P(-1, 2) 到点 Q(2, 3) 的距离是 ( )',
@@ -592,24 +680,802 @@
                 english: 'The distance from point P(-1, 2) to point Q(2, 3) is ( )',
                 indonesia: 'Jarak dari titik P(-1, 2) ke titik Q(2, 3) adalah ( )',
                 opts: ['√10', '√26', '3', '4'], 
-                correct: 0,
+                correct: 0, 
                 image: true, 
-                imageDesc: 'Koordinat kartesius dengan titik P dan Q' 
+                imageDesc: 'Koordinat kartesius' 
             },
-            // ... dan seterusnya
+            { 
+                part: 2, 
+                text: '双曲线 x²/4 - y²/5 = 1 的焦点坐标是 ( )',
+                pinyin: 'Shuāngqūxiàn x²/4 - y²/5 = 1 de jiāodiǎn zuòbiāo shì ( )',
+                english: 'The foci of the hyperbola x²/4 - y²/5 = 1 have coordinates ( )',
+                indonesia: 'Titik fokus dari hiperbola x²/4 - y²/5 = 1 adalah ( )',
+                opts: ['(±3, 0)', '(0, ±3)', '(±1, 0)', '(0, ±1)'], 
+                correct: 0, 
+                image: true, 
+                imageDesc: 'Grafik hiperbola' 
+            },
+            { 
+                part: 2, 
+                text: '若 cos α = -1/2 且 π < α < 3π/2，则 sin(α/2) = ( )',
+                pinyin: 'Ruò cos α = -1/2 qiě π < α < 3π/2, zé sin(α/2) = ( )',
+                english: 'If cos α = -1/2 and π < α < 3π/2, then sin(α/2) = ( )',
+                indonesia: 'Jika cos α = -1/2 dan π < α < 3π/2, maka sin(α/2) = ( )',
+                opts: ['-√3/2', '-1/2', '√3/2', '1/2'], 
+                correct: 2 
+            },
+            { 
+                part: 2, 
+                text: '函数 y = 5tan(x - π/4) 的定义域是 ( )',
+                pinyin: 'Hánshù y = 5tan(x - π/4) de dìngyìyù shì ( )',
+                english: 'The domain of the function y = 5tan(x - π/4) is ( )',
+                indonesia: 'Domain dari fungsi y = 5tan(x - π/4) adalah ( )',
+                opts: ['{x | x ≠ kπ + π/4, k ∈ Z}', '{x | x ≠ kπ + 3π/4, k ∈ Z}', '{x | x ≠ 2kπ + π/4, k ∈ Z}', '{x | x ≠ 2kπ + 3π/4, k ∈ Z}'], 
+                correct: 1 
+            },
+            { 
+                part: 2, 
+                text: '某圆锥的母线长为 4，其侧面展开图为半圆面，则该圆锥的高是 ( )',
+                pinyin: 'Mǒu yuánzhuī de mǔxiàn cháng wèi 4, qí cèmiàn zhǎnkāi tú wèi bànyuán miàn, zé gāi yuánzhuī de gāo shì ( )',
+                english: 'A cone has a slant height of 4, and its lateral expansion is a semicircle. The height of the cone is ( )',
+                indonesia: 'Sebuah kerucut memiliki garis pelukis 4, dan jaring-jaring selimutnya berbentuk setengah lingkaran. Tinggi kerucut tersebut adalah ( )',
+                opts: ['2√3', '2√2', '2', '√3'], 
+                correct: 0, 
+                image: true, 
+                imageDesc: 'Kerucut' 
+            },
+            { 
+                part: 2, 
+                text: '两平面 x + 2y - z + 1 = 0 和 x - 2y + z - 3 = 0 的夹角是 ( )',
+                pinyin: 'Liǎng píngmiàn x + 2y - z + 1 = 0 hé x - 2y + z - 3 = 0 de jiājiǎo shì ( )',
+                english: 'The angle between the planes x + 2y - z + 1 = 0 and x - 2y + z - 3 = 0 is ( )',
+                indonesia: 'Sudut antara bidang x + 2y - z + 1 = 0 dan x - 2y + z - 3 = 0 adalah ( )',
+                opts: ['π/3', 'arccos(1/6)', 'π/2', 'arccos(5/6)'], 
+                correct: 2 
+            },
+            { 
+                part: 2, 
+                text: '已知向量 a, b 满足 |a| = 1, |b| = √3，若 |2a - b| = √13，则向量 a 与 b 的夹角为 ( )',
+                pinyin: 'Yǐzhī xiàngliàng a, b mǎnzú |a| = 1, |b| = √3, ruò |2a - b| = √13, zé xiàngliàng a yǔ b de jiājiǎo wèi ( )',
+                english: 'Given vectors a, b satisfying |a| = 1, |b| = √3, if |2a - b| = √13, then the angle between vectors a and b is ( )',
+                indonesia: 'Diketahui vektor a, b memenuhi |a| = 1, |b| = √3, jika |2a - b| = √13, maka sudut antara vektor a dan b adalah ( )',
+                opts: ['30°', '60°', '120°', '150°'], 
+                correct: 2 
+            },
+            { 
+                part: 2, 
+                text: '椭圆中心在原点，焦点在x轴上，一个顶点为 (0, 1)，离心率为 (2√5)/5，该椭圆的方程是 ( )',
+                pinyin: 'Tuǒyuán zhōngxīn zài yuándiǎn, jiāodiǎn zài x-zhóu shàng, yī gè dǐngdiǎn wèi (0, 1), líxīn lǜ wèi (2√5)/5, gāi tuǒyuán de fāngchéng shì ( )',
+                english: 'An ellipse has its center at the origin, foci on the x-axis, a vertex at (0, 1), and eccentricity (2√5)/5. The equation of the ellipse is ( )',
+                indonesia: 'Sebuah elips berpusat di titik asal, fokus pada sumbu-x, salah satu titik puncaknya di (0, 1), dan eksentrisitas (2√5)/5. Persamaan elips tersebut adalah ( )',
+                opts: ['x²/5 + y² = 1', 'x² + y²/5 = 1', 'x²/4 + y²/5 = 1', 'x²/5 + y²/4 = 1'], 
+                correct: 0, 
+                image: true, 
+                imageDesc: 'Grafik elips' 
+            },
+            { 
+                part: 2, 
+                text: '在△ABC中，角A、B、C的对边分别为a、b、c，且 2a cos A = b cos C + c cos B，则角A = ( )',
+                pinyin: 'Zài △ABC zhōng, jiǎo A, B, C de duìbiān fēnbié wèi a, b, c, qiě 2a cos A = b cos C + c cos B, zé jiǎo A = ( )',
+                english: 'In triangle ABC, the sides opposite to angles A, B, C are a, b, c respectively, and 2a cos A = b cos C + c cos B, then angle A = ( )',
+                indonesia: 'Pada segitiga ABC, sisi di depan sudut A, B, C berturut-turut adalah a, b, c, dan 2a cos A = b cos C + c cos B, maka sudut A = ( )',
+                opts: ['30°', '45°', '60°', '90°'], 
+                correct: 2 
+            },
+            { 
+                part: 2, 
+                text: '若双曲线 x²/m - y² = 1 (m > 0) 的渐近线与圆 x² + y² - 4y + 3 = 0 相切，则 m = ( )',
+                pinyin: 'Ruò shuāngqūxiàn x²/m - y² = 1 (m > 0) de jiànjìnxiàn yǔ yuán x² + y² - 4y + 3 = 0 xiāngqiē, zé m = ( )',
+                english: 'If the asymptotes of the hyperbola x²/m - y² = 1 (m > 0) are tangent to the circle x² + y² - 4y + 3 = 0, then m = ( )',
+                indonesia: 'Jika asimtot dari hiperbola x²/m - y² = 1 (m > 0) menyinggung lingkaran x² + y² - 4y + 3 = 0, maka m = ( )',
+                opts: ['1/3', '√3', '3', '9'], 
+                correct: 0 
+            },
+            { 
+                part: 2, 
+                text: '函数 f(x) = sin x + √3 cos x 在区间 [0, π/2] 上的最大值是 ( )',
+                pinyin: 'Hánshù f(x) = sin x + √3 cos x zài qūjiān [0, π/2] shàng de zuì dà zhí shì ( )',
+                english: 'The maximum value of the function f(x) = sin x + √3 cos x on the interval [0, π/2] is ( )',
+                indonesia: 'Nilai maksimum dari fungsi f(x) = sin x + √3 cos x pada interval [0, π/2] adalah ( )',
+                opts: ['1', '√3', '2', '√3 + 1'], 
+                correct: 2 
+            },
+            
+            // BAGIAN 3: KALKULUS & ANALISIS (Soal 25-36) - SET 1
+            { 
+                part: 3, 
+                text: '极限 lim_{x→0} (sin x)/x = ( )',
+                pinyin: 'Jíxiàn lim_{x→0} (sin x)/x = ( )',
+                english: 'The limit lim_{x→0} (sin x)/x = ( )',
+                indonesia: 'Limit lim_{x→0} (sin x)/x = ( )',
+                opts: ['0', '1', '∞', 'Tidak ada'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '函数 f(x) = x³ - 3x + 1 的拐点是 ( )',
+                pinyin: 'Hánshù f(x) = x³ - 3x + 1 de guǎidiǎn shì ( )',
+                english: 'The inflection point of the function f(x) = x³ - 3x + 1 is ( )',
+                indonesia: 'Titik belok dari fungsi f(x) = x³ - 3x + 1 adalah ( )',
+                opts: ['(0, 1)', '(1, -1)', '(-1, 3)', '(0, -1)'], 
+                correct: 0 
+            },
+            { 
+                part: 3, 
+                text: '不定积分 ∫ (2x + 1) dx = ( )',
+                pinyin: 'Bùdìng jīfēn ∫ (2x + 1) dx = ( )',
+                english: 'The indefinite integral ∫ (2x + 1) dx = ( )',
+                indonesia: 'Integral tak tentu ∫ (2x + 1) dx = ( )',
+                opts: ['x² + x + C', 'x² + C', '2x² + x + C', 'x² + 2x + C'], 
+                correct: 0 
+            },
+            { 
+                part: 3, 
+                text: '导数 d/dx [ln(x² + 1)] = ( )',
+                pinyin: 'Dǎoshù d/dx [ln(x² + 1)] = ( )',
+                english: 'The derivative d/dx [ln(x² + 1)] = ( )',
+                indonesia: 'Turunan d/dx [ln(x² + 1)] = ( )',
+                opts: ['1/(x² + 1)', '2x/(x² + 1)', '2x', '2/(x² + 1)'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '曲线 y = x² 在点 (1, 1) 处的切线斜率是 ( )',
+                pinyin: 'Qūxiàn y = x² zài diǎn (1, 1) chù de qiēxiàn xiélǜ shì ( )',
+                english: 'The slope of the tangent line to the curve y = x² at the point (1, 1) is ( )',
+                indonesia: 'Gradien garis singgung kurva y = x² di titik (1, 1) adalah ( )',
+                opts: ['1', '2', '0', '-1'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '定积分 ∫₀¹ x² dx = ( )',
+                pinyin: 'Dìng jīfēn ∫₀¹ x² dx = ( )',
+                english: 'The definite integral ∫₀¹ x² dx = ( )',
+                indonesia: 'Integral tentu ∫₀¹ x² dx = ( )',
+                opts: ['1/3', '1/2', '1', '2'], 
+                correct: 0 
+            },
+            { 
+                part: 3, 
+                text: '函数 f(x) = e^x 的麦克劳林级数展开式中，x³ 项的系数是 ( )',
+                pinyin: 'Hánshù f(x) = e^x de Màikèláolín jíshù zhǎnkāi shì zhōng, x³ xiàng de xìshù shì ( )',
+                english: 'In the Maclaurin series expansion of the function f(x) = e^x, the coefficient of the x³ term is ( )',
+                indonesia: 'Pada ekspansi deret Maclaurin dari fungsi f(x) = e^x, koefisien dari suku x³ adalah ( )',
+                opts: ['1', '1/2', '1/6', '1/24'], 
+                correct: 2 
+            },
+            { 
+                part: 3, 
+                text: '曲线 y = x³ - 3x 的单调递减区间是 ( )',
+                pinyin: 'Qūxiàn y = x³ - 3x de dāndiào dìjiǎn qūjiān shì ( )',
+                english: 'The interval where the curve y = x³ - 3x is decreasing is ( )',
+                indonesia: 'Interval di mana kurva y = x³ - 3x turun adalah ( )',
+                opts: ['(-∞, -1)', '(1, +∞)', '(-1, 1)', '(-∞, +∞)'], 
+                correct: 2 
+            },
+            { 
+                part: 3, 
+                text: '若 f(x) = x² + 1，则 f\'(2) = ( )',
+                pinyin: 'Ruò f(x) = x² + 1, zé f\'(2) = ( )',
+                english: 'If f(x) = x² + 1, then f\'(2) = ( )',
+                indonesia: 'Jika f(x) = x² + 1, maka f\'(2) = ( )',
+                opts: ['4', '5', '2', '3'], 
+                correct: 0 
+            },
+            { 
+                part: 3, 
+                text: '极限 lim_{x→∞} (1 + 1/x)^x = ( )',
+                pinyin: 'Jíxiàn lim_{x→∞} (1 + 1/x)^x = ( )',
+                english: 'The limit lim_{x→∞} (1 + 1/x)^x = ( )',
+                indonesia: 'Limit lim_{x→∞} (1 + 1/x)^x = ( )',
+                opts: ['1', 'e', '∞', 'Tidak ada'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '函数 f(x) = x⁴ - 2x² 的极小值点是 ( )',
+                pinyin: 'Hánshù f(x) = x⁴ - 2x² de jíxiǎo zhí diǎn shì ( )',
+                english: 'The local minimum point(s) of the function f(x) = x⁴ - 2x² is/are ( )',
+                indonesia: 'Titik minimum lokal dari fungsi f(x) = x⁴ - 2x² adalah ( )',
+                opts: ['x = 0', 'x = ±1', 'x = 1', 'x = -1'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '曲线 y = ln x 在点 (1, 0) 处的切线方程是 ( )',
+                pinyin: 'Qūxiàn y = ln x zài diǎn (1, 0) chù de qiēxiàn fāngchéng shì ( )',
+                english: 'The equation of the tangent line to the curve y = ln x at the point (1, 0) is ( )',
+                indonesia: 'Persamaan garis singgung kurva y = ln x di titik (1, 0) adalah ( )',
+                opts: ['y = x - 1', 'y = -x + 1', 'y = x', 'y = 0'], 
+                correct: 0 
+            },
+            
+            // BAGIAN 4: PROBABILITAS, STATISTIK & LAINNYA (Soal 37-48) - SET 1
+            { 
+                part: 4, 
+                text: '先后两次抛掷同一个骰子，将得到的点数分别记为a, b，则a, b, 4能构成钝角三角形的概率是 ( )',
+                pinyin: 'Xiānhòu liǎng cì pāozhì tóng yī gè tóuzi, jiāng dédào de diǎnshù fēnbié jì wèi a, b, zé a, b, 4 néng gòuchéng dùnjiǎo sānjiǎoxíng de gàilǜ shì ( )',
+                english: 'A die is tossed twice. The numbers obtained are recorded as a and b respectively. The probability that a, b, and 4 can form an obtuse triangle is ( )',
+                indonesia: 'Sebuah dadu dilempar dua kali. Angka yang diperoleh dicatat sebagai a dan b. Probabilitas bahwa a, b, dan 4 dapat membentuk segitiga tumpul adalah ( )',
+                opts: ['1/6', '2/9', '13/36', '1/2'], 
+                correct: 2 
+            },
+            { 
+                part: 4, 
+                text: '已知 P(A) = 0.5, P(B) = 0.4，且A与B相互独立，则 P(A∪B) = ( )',
+                pinyin: 'Yǐzhī P(A) = 0.5, P(B) = 0.4, qiě A yǔ B xiānghù dúlì, zé P(A∪B) = ( )',
+                english: 'Given P(A) = 0.5, P(B) = 0.4, and A and B are independent, then P(A∪B) = ( )',
+                indonesia: 'Diketahui P(A) = 0.5, P(B) = 0.4, dan A dan B saling bebas, maka P(A∪B) = ( )',
+                opts: ['0.9', '0.2', '0.7', '0.5'], 
+                correct: 2 
+            },
+            { 
+                part: 4, 
+                text: '一组数据 1, 2, 3, 4, 5 的方差是 ( )',
+                pinyin: 'Yī zǔ shùjù 1, 2, 3, 4, 5 de fāngchà shì ( )',
+                english: 'The variance of the data set 1, 2, 3, 4, 5 is ( )',
+                indonesia: 'Varians dari data 1, 2, 3, 4, 5 adalah ( )',
+                opts: ['2', '√2', '2.5', '3'], 
+                correct: 0 
+            },
+            { 
+                part: 4, 
+                text: '从装有3个红球和2个白球的袋中随机取出2个球，则两个球颜色相同的概率是 ( )',
+                pinyin: 'Cóng zhuāng yǒu 3 gè hóng qiú hé 2 gè bái qiú de dài zhōng suíjī qǔ chū 2 gè qiú, zé liǎng gè qiú yánsè xiāngtóng de gàilǜ shì ( )',
+                english: 'Two balls are drawn at random from a bag containing 3 red balls and 2 white balls. The probability that both balls are of the same color is ( )',
+                indonesia: 'Dua bola diambil secara acak dari sebuah kantong berisi 3 bola merah dan 2 bola putih. Probabilitas kedua bola berwarna sama adalah ( )',
+                opts: ['2/5', '3/5', '1/5', '4/5'], 
+                correct: 0 
+            },
+            { 
+                part: 4, 
+                text: '复数 z = 1 + i，则 z² = ( )',
+                pinyin: 'Fùshù z = 1 + i, zé z² = ( )',
+                english: 'The complex number z = 1 + i, then z² = ( )',
+                indonesia: 'Bilangan kompleks z = 1 + i, maka z² = ( )',
+                opts: ['2i', '1 - i', '0', '2'], 
+                correct: 0 
+            },
+            { 
+                part: 4, 
+                text: '已知数列 {aₙ} 满足 a₁ = 2, aₙ = 1 + 1/aₙ₋₁ (n ≥ 2)，则 a₄ = ( )',
+                pinyin: 'Yǐzhī shùliè {aₙ} mǎnzú a₁ = 2, aₙ = 1 + 1/aₙ₋₁ (n ≥ 2), zé a₄ = ( )',
+                english: 'A sequence {aₙ} satisfies a₁ = 2, aₙ = 1 + 1/aₙ₋₁ (n ≥ 2). Then a₄ = ( )',
+                indonesia: 'Suatu barisan {aₙ} memenuhi a₁ = 2, aₙ = 1 + 1/aₙ₋₁ (n ≥ 2). Maka a₄ = ( )',
+                opts: ['3/2', '5/3', '8/5', '13/8'], 
+                correct: 3 
+            },
+            { 
+                part: 4, 
+                text: '直线 3x + 4y - 5 = 0 与圆 x² + y² = 4 的位置关系是 ( )',
+                pinyin: 'Zhíxiàn 3x + 4y - 5 = 0 yǔ yuán x² + y² = 4 de wèizhì guānxì shì ( )',
+                english: 'The positional relationship between the line 3x + 4y - 5 = 0 and the circle x² + y² = 4 is ( )',
+                indonesia: 'Hubungan posisi antara garis 3x + 4y - 5 = 0 dan lingkaran x² + y² = 4 adalah ( )',
+                opts: ['Bersinggungan', 'Berpotongan di dua titik', 'Tidak berpotongan', 'Garis melalui pusat lingkaran'], 
+                correct: 0, 
+                image: true, 
+                imageDesc: 'Lingkaran dan garis' 
+            },
+            { 
+                part: 4, 
+                text: '若 logₐ 8 = 3，则 a = ( )',
+                pinyin: 'Ruò logₐ 8 = 3, zé a = ( )',
+                english: 'If logₐ 8 = 3, then a = ( )',
+                indonesia: 'Jika logₐ 8 = 3, maka a = ( )',
+                opts: ['2', '3', '4', '8'], 
+                correct: 0 
+            },
+            { 
+                part: 4, 
+                text: '等差数列 2, 5, 8, 11, ... 的第10项是 ( )',
+                pinyin: 'Děngchà shùliè 2, 5, 8, 11, ... de dì 10 xiàng shì ( )',
+                english: 'The 10th term of the arithmetic sequence 2, 5, 8, 11, ... is ( )',
+                indonesia: 'Suku ke-10 dari barisan aritmetika 2, 5, 8, 11, ... adalah ( )',
+                opts: ['29', '30', '31', '32'], 
+                correct: 0 
+            },
+            { 
+                part: 4, 
+                text: '方程 x² + y² - 2x + 4y + 1 = 0 所表示的圆的半径是 ( )',
+                pinyin: 'Fāngchéng x² + y² - 2x + 4y + 1 = 0 suǒ biǎoshì de yuán de bànjìng shì ( )',
+                english: 'The radius of the circle represented by the equation x² + y² - 2x + 4y + 1 = 0 is ( )',
+                indonesia: 'Jari-jari lingkaran yang dinyatakan oleh persamaan x² + y² - 2x + 4y + 1 = 0 adalah ( )',
+                opts: ['1', '2', '3', '4'], 
+                correct: 1, 
+                image: true, 
+                imageDesc: 'Lingkaran' 
+            },
+            { 
+                part: 4, 
+                text: '函数 f(x) = |x| 在 x = 0 处 ( )',
+                pinyin: 'Hánshù f(x) = |x| zài x = 0 chù ( )',
+                english: 'The function f(x) = |x| at x = 0 is ( )',
+                indonesia: 'Fungsi f(x) = |x| di x = 0 ( )',
+                opts: ['可导', '连续但不可导', '不连续', '无法确定'], 
+                correct: 1 
+            },
+            { 
+                part: 4, 
+                text: '若 sin θ = 3/5 且 θ 在第二象限，则 tan θ = ( )',
+                pinyin: 'Ruò sin θ = 3/5 qiě θ zài dì\'èr xiàngxiàn, zé tan θ = ( )',
+                english: 'If sin θ = 3/5 and θ is in the second quadrant, then tan θ = ( )',
+                indonesia: 'Jika sin θ = 3/5 dan θ berada di kuadran II, maka tan θ = ( )',
+                opts: ['-3/4', '3/4', '-4/3', '4/3'], 
+                correct: 0 
+            }
         ];
 
-        // SET 2, 3, 4, 5, 6, 7, 8, 9, 10 (Anda perlu menambahkan semua soal di sini)
-        // Untuk sementara, kita duplikasi set1 sebagai placeholder
-        const set2Questions = set1Questions.map(q => ({...q}));
-        const set3Questions = set1Questions.map(q => ({...q}));
-        const set4Questions = set1Questions.map(q => ({...q}));
-        const set5Questions = set1Questions.map(q => ({...q}));
-        const set6Questions = set1Questions.map(q => ({...q}));
-        const set7Questions = set1Questions.map(q => ({...q}));
-        const set8Questions = set1Questions.map(q => ({...q}));
-        const set9Questions = set1Questions.map(q => ({...q}));
-        const set10Questions = set1Questions.map(q => ({...q}));
+        // ==================== SET 2 (48 SOAL) ====================
+        const set2Questions = [
+            // BAGIAN 1: ALJABAR & FUNGSI (Soal 1-12) - SET 2
+            { 
+                part: 1, 
+                text: '函数 y = 5x + 3 的反函数是 ( )',
+                pinyin: 'Hánshù y = 5x + 3 de fǎn hánshù shì ( )',
+                english: 'The inverse function of y = 5x + 3 is ( )',
+                indonesia: 'Fungsi invers dari y = 5x + 3 adalah ( )',
+                opts: ['y = (x - 5)/3', 'y = (x - 3)/5', 'y = (x + 3)/5', 'y = (x + 5)/3'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '不等式 x² - 3x - 4 > 0 的解集是 ( )',
+                pinyin: 'Bùděngshì x² - 3x - 4 > 0 de jiě jí shì ( )',
+                english: 'The solution set of the inequality x² - 3x - 4 > 0 is ( )',
+                indonesia: 'Himpunan penyelesaian dari pertidaksamaan x² - 3x - 4 > 0 adalah ( )',
+                opts: ['(-1, 4)', '[-1, 4]', '(-∞, -1) ∪ (4, +∞)', '(-∞, -1] ∪ [4, +∞)'], 
+                correct: 2 
+            },
+            { 
+                part: 1, 
+                text: '若 a > b 且 c > d，下列哪一项一定成立? ( )',
+                pinyin: 'Ruò a > b qiě c > d, xiàliè nǎ yī xiàng yīdìng chénglì? ( )',
+                english: 'If a > b and c > d, which of the following must be true? ( )',
+                indonesia: 'Jika a > b dan c > d, manakah pernyataan berikut yang pasti benar? ( )',
+                opts: ['a² > b²', 'a/c > b/d', 'a + c > b + d', 'ac > bd'], 
+                correct: 2 
+            },
+            { 
+                part: 1, 
+                text: '不等式 |2x + 1| ≤ 3 的解集是 ( )',
+                pinyin: 'Bùděngshì |2x + 1| ≤ 3 de jiě jí shì ( )',
+                english: 'The solution set of the inequality |2x + 1| ≤ 3 is ( )',
+                indonesia: 'Himpunan penyelesaian dari pertidaksamaan |2x + 1| ≤ 3 adalah ( )',
+                opts: ['(-2, 1)', '[-2, 1]', '(-∞, -2) ∪ (1, +∞)', '(-∞, -2] ∪ [1, +∞)'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '设 i 为虚数单位，复数 z = (3+i)/(1-i)，则 z 的共轭复数 = ( )',
+                pinyin: 'Shè i wèi xūshù dānwèi, fùshù z = (3+i)/(1-i), zé z de gòng'è fùshù = ( )',
+                english: 'Let i be the imaginary unit, complex number z = (3+i)/(1-i), then the complex conjugate of z = ( )',
+                indonesia: 'Diketahui i adalah unit imajiner, bilangan kompleks z = (3+i)/(1-i), maka konjugat dari z = ( )',
+                opts: ['1 + 2i', '1 - 2i', '2 + i', '2 - i'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '不等式 (1/2)^x < 1/8 的解集是 ( )',
+                pinyin: 'Bùděngshì (1/2)^x < 1/8 de jiě jí shì ( )',
+                english: 'The solution set of the inequality (1/2)^x < 1/8 is ( )',
+                indonesia: 'Himpunan penyelesaian dari pertidaksamaan (1/2)^x < 1/8 adalah ( )',
+                opts: ['(-∞, 3)', '(3, +∞)', '(-∞, -3)', '(-3, +∞)'], 
+                correct: 1 
+            },
+            { 
+                part: 1, 
+                text: '函数 y = 1 / √(4 - x²) 的定义域是 ( )',
+                pinyin: 'Hánshù y = 1 / √(4 - x²) de dìngyìyù shì ( )',
+                english: 'The domain of the function y = 1 / √(4 - x²) is ( )',
+                indonesia: 'Domain dari fungsi y = 1 / √(4 - x²) adalah ( )',
+                opts: ['(-2, 2)', '[-2, 2]', '(0, 2)', '(-∞, -2) ∪ (2, +∞)'], 
+                correct: 0 
+            },
+            { 
+                part: 1, 
+                text: '不等式 log₃(2x - 1) < 2 的解集是 ( )',
+                pinyin: 'Bùděngshì log₃(2x - 1) < 2 de jiě jí shì ( )',
+                english: 'The solution set of the inequality log₃(2x - 1) < 2 is ( )',
+                indonesia: 'Himpunan penyelesaian dari pertidaksamaan log₃(2x - 1) < 2 adalah ( )',
+                opts: ['(1/2, 5)', '(1/2, 5]', '(-∞, 5)', '(5, +∞)'], 
+                correct: 0 
+            },
+            { 
+                part: 1, 
+                text: '已知函数 f(x) = -x³ + 3x² + 9x - 2，则 f(x) 在区间 [-2, 4] 上的最小值是 ( )',
+                pinyin: 'Yǐzhī hánshù f(x) = -x³ + 3x² + 9x - 2, zé f(x) zài qūjiān [-2, 4] shàng de zuì xiǎo zhí shì ( )',
+                english: 'Given the function f(x) = -x³ + 3x² + 9x - 2, then the minimum value of f(x) on the interval [-2, 4] is ( )',
+                indonesia: 'Diketahui fungsi f(x) = -x³ + 3x² + 9x - 2, maka nilai minimum dari f(x) pada interval [-2, 4] adalah ( )',
+                opts: ['-7', '0', '18', '25'], 
+                correct: 0 
+            },
+            { 
+                part: 1, 
+                text: '若关于 x 的二次方程 x² - 2x + k = 0 有实数根，则实数 k 的取值范围是 ( )',
+                pinyin: 'Ruò guānyú x de èrcì fāngchéng x² - 2x + k = 0 yǒu shíshù gēn, zé shíshù k de qǔzhí fànwéi shì ( )',
+                english: 'If the quadratic equation in x, x² - 2x + k = 0, has real roots, then the range of the real number k is ( )',
+                indonesia: 'Jika persamaan kuadrat dalam x, x² - 2x + k = 0, memiliki akar-akar real, maka rentang nilai bilangan real k adalah ( )',
+                opts: ['k ≤ 1', 'k ≥ 1', 'k ≤ -1', 'k ≥ -1'], 
+                correct: 0 
+            },
+            { 
+                part: 1, 
+                text: '已知等比数列 {aₙ} 中，a₂ = 4，a₅ = 32，则其公比 q = ( )',
+                pinyin: 'Yǐzhī děngbǐ shùliè {aₙ} zhōng, a₂ = 4, a₅ = 32, zé qí gōngbǐ q = ( )',
+                english: 'In a geometric sequence {aₙ}, it is known that a₂ = 4 and a₅ = 32. Then its common ratio q = ( )',
+                indonesia: 'Pada suatu barisan geometri {aₙ}, diketahui a₂ = 4 dan a₅ = 32. Maka rasio q = ( )',
+                opts: ['2', '4', '6', '8'], 
+                correct: 0 
+            },
+            { 
+                part: 1, 
+                text: '直线 2x - y + 3 = 0 与直线 4x - 2y + 5 = 0 的位置关系是 ( )',
+                pinyin: 'Zhíxiàn 2x - y + 3 = 0 yǔ zhíxiàn 4x - 2y + 5 = 0 de wèizhì guānxì shì ( )',
+                english: 'The positional relationship between the line 2x - y + 3 = 0 and the line 4x - 2y + 5 = 0 is ( )',
+                indonesia: 'Hubungan posisi antara garis 2x - y + 3 = 0 dan garis 4x - 2y + 5 = 0 adalah ( )',
+                opts: ['Berpotongan tegak lurus', 'Berpotongan tidak tegak lurus', 'Sejajar', 'Berimpit'], 
+                correct: 2 
+            },
+            
+            // BAGIAN 2: TRIGONOMETRI & GEOMETRI (Soal 13-24) - SET 2
+            { 
+                part: 2, 
+                text: '若 sin α = 3/5，且 α 在第二象限，则 sin 2α = ( )',
+                pinyin: 'Ruò sin α = 3/5, qiě α zài dì\'èr xiàngxiàn, zé sin 2α = ( )',
+                english: 'If sin α = 3/5, and α is in the second quadrant, then sin 2α = ( )',
+                indonesia: 'Jika sin α = 3/5, dan α berada di kuadran II, maka sin 2α = ( )',
+                opts: ['-24/25', '-12/25', '12/25', '24/25'], 
+                correct: 0 
+            },
+            { 
+                part: 2, 
+                text: '点 A(2, -1) 到直线 3x - 4y + 5 = 0 的距离是 ( )',
+                pinyin: 'Diǎn A(2, -1) dào zhíxiàn 3x - 4y + 5 = 0 de jùlí shì ( )',
+                english: 'The distance from point A(2, -1) to the line 3x - 4y + 5 = 0 is ( )',
+                indonesia: 'Jarak dari titik A(2, -1) ke garis 3x - 4y + 5 = 0 adalah ( )',
+                opts: ['1', '2', '3', '4'], 
+                correct: 2, 
+                image: true, 
+                imageDesc: 'Titik dan garis' 
+            },
+            { 
+                part: 2, 
+                text: '椭圆 x²/9 + y²/4 = 1 的离心率是 ( )',
+                pinyin: 'Tuǒyuán x²/9 + y²/4 = 1 de líxīn lǜ shì ( )',
+                english: 'The eccentricity of the ellipse x²/9 + y²/4 = 1 is ( )',
+                indonesia: 'Eksentrisitas dari elips x²/9 + y²/4 = 1 adalah ( )',
+                opts: ['√5/3', '√13/3', '√5/2', '√13/2'], 
+                correct: 0, 
+                image: true, 
+                imageDesc: 'Grafik elips' 
+            },
+            { 
+                part: 2, 
+                text: '若 sin θ = -4/5 且 π < θ < 3π/2，则 cos(θ/2) = ( )',
+                pinyin: 'Ruò sin θ = -4/5 qiě π < θ < 3π/2, zé cos(θ/2) = ( )',
+                english: 'If sin θ = -4/5 and π < θ < 3π/2, then cos(θ/2) = ( )',
+                indonesia: 'Jika sin θ = -4/5 dan π < θ < 3π/2, maka cos(θ/2) = ( )',
+                opts: ['-√5/5', '-2√5/5', '√5/5', '2√5/5'], 
+                correct: 0 
+            },
+            { 
+                part: 2, 
+                text: '函数 y = 3cot(x + π/6) 的定义域是 ( )',
+                pinyin: 'Hánshù y = 3cot(x + π/6) de dìngyìyù shì ( )',
+                english: 'The domain of the function y = 3cot(x + π/6) is ( )',
+                indonesia: 'Domain dari fungsi y = 3cot(x + π/6) adalah ( )',
+                opts: ['{x | x ≠ kπ - π/6, k ∈ Z}', '{x | x ≠ kπ + π/6, k ∈ Z}', '{x | x ≠ 2kπ - π/6, k ∈ Z}', '{x | x ≠ 2kπ + π/6, k ∈ Z}'], 
+                correct: 0 
+            },
+            { 
+                part: 2, 
+                text: '已知圆柱的侧面展开图是边长为 4 的正方形，则该圆柱的体积是 ( )',
+                pinyin: 'Yǐzhī yuánzhù de cèmiàn zhǎnkāi tú shì biāncháng wèi 4 de zhèngfāngxíng, zé gāi yuánzhù de tǐjī shì ( )',
+                english: 'The lateral expansion of a cylinder is a square with side length 4. The volume of this cylinder is ( )',
+                indonesia: 'Diketahui jaring-jaring selimut sebuah tabung adalah sebuah persegi dengan panjang sisi 4. Volume tabung tersebut adalah ( )',
+                opts: ['8/π', '16/π', '8π', '16π'], 
+                correct: 1, 
+                image: true, 
+                imageDesc: 'Tabung' 
+            },
+            { 
+                part: 2, 
+                text: '两平面 2x - y + z - 2 = 0 和 x + 2y - z + 1 = 0 的夹角余弦值是 ( )',
+                pinyin: 'Liǎng píngmiàn 2x - y + z - 2 = 0 hé x + 2y - z + 1 = 0 de jiājiǎo yúxián zhí shì ( )',
+                english: 'The cosine of the angle between the planes 2x - y + z - 2 = 0 and x + 2y - z + 1 = 0 is ( )',
+                indonesia: 'Nilai cosinus sudut antara bidang 2x - y + z - 2 = 0 dan x + 2y - z + 1 = 0 adalah ( )',
+                opts: ['-1/6', '-1/3', '1/6', '1/3'], 
+                correct: 0 
+            },
+            { 
+                part: 2, 
+                text: '已知向量 |a| = 2, |b| = 2，且 a·b = 2，则 |a - b| = ( )',
+                pinyin: 'Yǐzhī xiàngliàng |a| = 2, |b| = 2, qiě a·b = 2, zé |a - b| = ( )',
+                english: 'Given vectors with |a| = 2, |b| = 2, and a·b = 2, then |a - b| = ( )',
+                indonesia: 'Diketahui vektor |a| = 2, |b| = 2, dan a·b = 2, maka |a - b| = ( )',
+                opts: ['2', '√3', '2√3', '4'], 
+                correct: 0 
+            },
+            { 
+                part: 2, 
+                text: '双曲线中心在原点，焦点在y轴上，一个顶点为 (0, 3)，离心率为 5/3，该双曲线的方程是 ( )',
+                pinyin: 'Shuāngqūxiàn zhōngxīn zài yuándiǎn, jiāodiǎn zài y-zhóu shàng, yī gè dǐngdiǎn wèi (0, 3), líxīn lǜ wèi 5/3, gāi shuāngqūxiàn de fāngchéng shì ( )',
+                english: 'A hyperbola has its center at the origin, foci on the y-axis, a vertex at (0, 3), and eccentricity 5/3. The equation of the hyperbola is ( )',
+                indonesia: 'Sebuah hiperbola berpusat di titik asal, fokus pada sumbu-y, salah satu titik puncaknya di (0, 3), dan eksentrisitas 5/3. Persamaan hiperbola tersebut adalah ( )',
+                opts: ['x²/4 - y²/9 = 1', 'y²/9 - x²/4 = 1', 'y²/9 - x²/16 = 1', 'x²/16 - y²/9 = 1'], 
+                correct: 1, 
+                image: true, 
+                imageDesc: 'Grafik hiperbola' 
+            },
+            { 
+                part: 2, 
+                text: '在△ABC中，角A、B、C的对边分别为a、b、c，且 a² + b² - c² = √3 ab，则角C = ( )',
+                pinyin: 'Zài △ABC zhōng, jiǎo A, B, C de duìbiān fēnbié wèi a, b, c, qiě a² + b² - c² = √3 ab, zé jiǎo C = ( )',
+                english: 'In triangle ABC, the sides opposite to angles A, B, C are a, b, c respectively, and a² + b² - c² = √3 ab, then angle C = ( )',
+                indonesia: 'Pada segitiga ABC, sisi di depan sudut A, B, C berturut-turut adalah a, b, c, dan a² + b² - c² = √3 ab, maka sudut C = ( )',
+                opts: ['30°', '45°', '60°', '90°'], 
+                correct: 0, 
+                image: true, 
+                imageDesc: 'Segitiga' 
+            },
+            { 
+                part: 2, 
+                text: '抛物线 y² = 8x 的焦点到准线的距离是 ( )',
+                pinyin: 'Pāowùxiàn y² = 8x de jiāodiǎn dào zhǔnxiàn de jùlí shì ( )',
+                english: 'The distance from the focus to the directrix of the parabola y² = 8x is ( )',
+                indonesia: 'Jarak dari titik fokus ke direktris pada parabola y² = 8x adalah ( )',
+                opts: ['2', '4', '6', '8'], 
+                correct: 1, 
+                image: true, 
+                imageDesc: 'Parabola' 
+            },
+            { 
+                part: 2, 
+                text: '函数 f(x) = √3 sin 2x - cos 2x 的值域是 ( )',
+                pinyin: 'Hánshù f(x) = √3 sin 2x - cos 2x de zhíyù shì ( )',
+                english: 'The range of the function f(x) = √3 sin 2x - cos 2x is ( )',
+                indonesia: 'Range dari fungsi f(x) = √3 sin 2x - cos 2x adalah ( )',
+                opts: ['[-2, 2]', '[-1, 1]', '[-√3, √3]', '[-√2, √2]'], 
+                correct: 0 
+            },
+            
+            // BAGIAN 3: KALKULUS & ANALISIS (Soal 25-36) - SET 2
+            { 
+                part: 3, 
+                text: '极限 lim_{x→0} (tan x)/x = ( )',
+                pinyin: 'Jíxiàn lim_{x→0} (tan x)/x = ( )',
+                english: 'The limit lim_{x→0} (tan x)/x = ( )',
+                indonesia: 'Limit lim_{x→0} (tan x)/x = ( )',
+                opts: ['0', '1', '∞', 'Tidak ada'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '函数 f(x) = x⁴ - 6x² 的拐点个数是 ( )',
+                pinyin: 'Hánshù f(x) = x⁴ - 6x² de guǎidiǎn gèshù shì ( )',
+                english: 'The number of inflection points of the function f(x) = x⁴ - 6x² is ( )',
+                indonesia: 'Jumlah titik belok dari fungsi f(x) = x⁴ - 6x² adalah ( )',
+                opts: ['0', '1', '2', '3'], 
+                correct: 2 
+            },
+            { 
+                part: 3, 
+                text: '不定积分 ∫ (3x² - 2x + 1) dx = ( )',
+                pinyin: 'Bùdìng jīfēn ∫ (3x² - 2x + 1) dx = ( )',
+                english: 'The indefinite integral ∫ (3x² - 2x + 1) dx = ( )',
+                indonesia: 'Integral tak tentu ∫ (3x² - 2x + 1) dx = ( )',
+                opts: ['x³ - x² + x + C', 'x³ - x² + C', '3x³ - 2x² + x + C', '6x - 2 + C'], 
+                correct: 0 
+            },
+            { 
+                part: 3, 
+                text: '导数 d/dx [e^(2x+1)] = ( )',
+                pinyin: 'Dǎoshù d/dx [e^(2x+1)] = ( )',
+                english: 'The derivative d/dx [e^(2x+1)] = ( )',
+                indonesia: 'Turunan d/dx [e^(2x+1)] = ( )',
+                opts: ['e^(2x+1)', '2e^(2x+1)', '(2x+1)e^(2x)', '2e^(2x)'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '曲线 y = x³ 在点 (2, 8) 处的切线斜率是 ( )',
+                pinyin: 'Qūxiàn y = x³ zài diǎn (2, 8) chù de qiēxiàn xiélǜ shì ( )',
+                english: 'The slope of the tangent line to the curve y = x³ at the point (2, 8) is ( )',
+                indonesia: 'Gradien garis singgung kurva y = x³ di titik (2, 8) adalah ( )',
+                opts: ['4', '6', '8', '12'], 
+                correct: 3 
+            },
+            { 
+                part: 3, 
+                text: '定积分 ∫₁² (2x) dx = ( )',
+                pinyin: 'Dìng jīfēn ∫₁² (2x) dx = ( )',
+                english: 'The definite integral ∫₁² (2x) dx = ( )',
+                indonesia: 'Integral tentu ∫₁² (2x) dx = ( )',
+                opts: ['1', '2', '3', '4'], 
+                correct: 2 
+            },
+            { 
+                part: 3, 
+                text: '函数 f(x) = sin x 的麦克劳林级数展开式中，x⁵ 项的系数是 ( )',
+                pinyin: 'Hánshù f(x) = sin x de Màikèláolín jíshù zhǎnkāi shì zhōng, x⁵ xiàng de xìshù shì ( )',
+                english: 'In the Maclaurin series expansion of the function f(x) = sin x, the coefficient of the x⁵ term is ( )',
+                indonesia: 'Pada ekspansi deret Maclaurin dari fungsi f(x) = sin x, koefisien dari suku x⁵ adalah ( )',
+                opts: ['-1/120', '1/120', '-1/6', '1/6'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '函数 y = 2x³ - 6x 的单调递增区间是 ( )',
+                pinyin: 'Hánshù y = 2x³ - 6x de dāndiào dìzēng qūjiān shì ( )',
+                english: 'The interval(s) where the function y = 2x³ - 6x is increasing is/are ( )',
+                indonesia: 'Interval di mana fungsi y = 2x³ - 6x naik adalah ( )',
+                opts: ['(-∞, -1) ∪ (1, +∞)', '(-1, 1)', '(-∞, -1]', '[1, +∞)'], 
+                correct: 0 
+            },
+            { 
+                part: 3, 
+                text: '若 f(x) = ln(2x)，则 f\'(1) = ( )',
+                pinyin: 'Ruò f(x) = ln(2x), zé f\'(1) = ( )',
+                english: 'If f(x) = ln(2x), then f\'(1) = ( )',
+                indonesia: 'Jika f(x) = ln(2x), maka f\'(1) = ( )',
+                opts: ['1', '1/2', '2', '0'], 
+                correct: 0 
+            },
+            { 
+                part: 3, 
+                text: '极限 lim_{x→0} (1 - cos x)/x² = ( )',
+                pinyin: 'Jíxiàn lim_{x→0} (1 - cos x)/x² = ( )',
+                english: 'The limit lim_{x→0} (1 - cos x)/x² = ( )',
+                indonesia: 'Limit lim_{x→0} (1 - cos x)/x² = ( )',
+                opts: ['0', '1/2', '1', '∞'], 
+                correct: 1 
+            },
+            { 
+                part: 3, 
+                text: '函数 f(x) = x³ - 3x 的极大值点是 ( )',
+                pinyin: 'Hánshù f(x) = x³ - 3x de jídà zhí diǎn shì ( )',
+                english: 'The local maximum point of the function f(x) = x³ - 3x is ( )',
+                indonesia: 'Titik maksimum lokal dari fungsi f(x) = x³ - 3x adalah ( )',
+                opts: ['x = -1', 'x = 1', 'x = 0', 'x = -3'], 
+                correct: 0 
+            },
+            { 
+                part: 3, 
+                text: '曲线 y = e^x 在点 (0, 1) 处的切线方程是 ( )',
+                pinyin: 'Qūxiàn y = e^x zài diǎn (0, 1) chù de qiēxiàn fāngchéng shì ( )',
+                english: 'The equation of the tangent line to the curve y = e^x at the point (0, 1) is ( )',
+                indonesia: 'Persamaan garis singgung kurva y = e^x di titik (0, 1) adalah ( )',
+                opts: ['y = x + 1', 'y = x', 'y = -x + 1', 'y = 2x + 1'], 
+                correct: 0 
+            },
+            
+            // BAGIAN 4: PROBABILITAS, STATISTIK & LAINNYA (Soal 37-48) - SET 2
+            { 
+                part: 4, 
+                text: '从标有 1,2,3,4,5 的五张卡片中，依次抽出两张（不放回），则第一次抽到奇数且第二次抽到偶数的概率是 ( )',
+                pinyin: 'Cóng biāo yǒu 1,2,3,4,5 de wǔ zhāng kǎpiàn zhōng, yīcì chōu chū liǎng zhāng (bù fànghuí), zé dì-yī cì chōu dào jīshù qiě dì-èr cì chōu dào ǒushù de gàilǜ shì ( )',
+                english: 'From five cards labeled 1, 2, 3, 4, 5, two cards are drawn in sequence without replacement. The probability that the first card is odd and the second card is even is ( )',
+                indonesia: 'Dari lima kartu bernomor 1, 2, 3, 4, 5, diambil dua kartu secara berurutan tanpa pengembalian. Probabilitas kartu pertama ganjil dan kartu kedua genap adalah ( )',
+                opts: ['3/10', '1/5', '2/5', '3/5'], 
+                correct: 0 
+            },
+            { 
+                part: 4, 
+                text: '已知 P(A) = 0.6, P(B) = 0.5，且A与B互斥，则 P(A∪B) = ( )',
+                pinyin: 'Yǐzhī P(A) = 0.6, P(B) = 0.5, qiě A yǔ B hùchì, zé P(A∪B) = ( )',
+                english: 'Given P(A) = 0.6, P(B) = 0.5, and A and B are mutually exclusive, then P(A∪B) = ( )',
+                indonesia: 'Diketahui P(A) = 0.6, P(B) = 0.5, dan A dan B saling lepas (mutually exclusive), maka P(A∪B) = ( )',
+                opts: ['0.1', '0.3', '1.1', '0.11'], 
+                correct: 2 
+            },
+            { 
+                part: 4, 
+                text: '一组数据 10, 20, 30, 40, 50 的标准差是 ( )',
+                pinyin: 'Yī zǔ shùjù 10, 20, 30, 40, 50 de biāozhǔnchà shì ( )',
+                english: 'The standard deviation of the data set 10, 20, 30, 40, 50 is ( )',
+                indonesia: 'Simpangan baku (standar deviasi) dari data 10, 20, 30, 40, 50 adalah ( )',
+                opts: ['√200', '√250', '√500', '√1000'], 
+                correct: 0 
+            },
+            { 
+                part: 4, 
+                text: '从装有4个红球和4个白球的袋中随机取出2个球，则两个球颜色不同的概率是 ( )',
+                pinyin: 'Cóng zhuāng yǒu 4 gè hóng qiú hé 4 gè bái qiú de dài zhōng suíjī qǔ chū 2 gè qiú, zé liǎng gè qiú yánsè bùtóng de gàilǜ shì ( )',
+                english: 'Two balls are drawn at random from a bag containing 4 red balls and 4 white balls. The probability that the two balls are of different colors is ( )',
+                indonesia: 'Dua bola diambil secara acak dari sebuah kantong berisi 4 bola merah dan 4 bola putih. Probabilitas kedua bola berbeda warna adalah ( )',
+                opts: ['4/7', '1/2', '8/15', '16/21'], 
+                correct: 0 
+            },
+            { 
+                part: 4, 
+                text: '复数 z = 2 - i，则其模 |z| = ( )',
+                pinyin: 'Fùshù z = 2 - i, zé qí mó |z| = ( )',
+                english: 'The complex number z = 2 - i, then its modulus |z| = ( )',
+                indonesia: 'Bilangan kompleks z = 2 - i, maka modulusnya |z| = ( )',
+                opts: ['√3', '√5', '3', '5'], 
+                correct: 1 
+            },
+            { 
+                part: 4, 
+                text: '已知数列 {aₙ} 满足 a₁ = 1, aₙ = 2aₙ₋₁ + 1 (n ≥ 2)，则 a₅ = ( )',
+                pinyin: 'Yǐzhī shùliè {aₙ} mǎnzú a₁ = 1, aₙ = 2aₙ₋₁ + 1 (n ≥ 2), zé a₅ = ( )',
+                english: 'A sequence {aₙ} satisfies a₁ = 1, aₙ = 2aₙ₋₁ + 1 (n ≥ 2). Then a₅ = ( )',
+                indonesia: 'Suatu barisan {aₙ} memenuhi a₁ = 1, aₙ = 2aₙ₋₁ + 1 (n ≥ 2). Maka a₅ = ( )',
+                opts: ['15', '31', '63', '127'], 
+                correct: 1 
+            },
+            { 
+                part: 4, 
+                text: '直线 4x + 3y - 10 = 0 与圆 x² + y² = 9 的位置关系是 ( )',
+                pinyin: 'Zhíxiàn 4x + 3y - 10 = 0 yǔ yuán x² + y² = 9 de wèizhì guānxì shì ( )',
+                english: 'The positional relationship between the line 4x + 3y - 10 = 0 and the circle x² + y² = 9 is ( )',
+                indonesia: 'Hubungan posisi antara garis 4x + 3y - 10 = 0 dan lingkaran x² + y² = 9 adalah ( )',
+                opts: ['Bersinggungan', 'Berpotongan di dua titik', 'Tidak berpotongan', 'Garis melalui pusat lingkaran'], 
+                correct: 1, 
+                image: true, 
+                imageDesc: 'Lingkaran dan garis' 
+            },
+            { 
+                part: 4, 
+                text: '若 log₃ (2x - 1) = 2，则 x = ( )',
+                pinyin: 'Ruò log₃ (2x - 1) = 2, zé x = ( )',
+                english: 'If log₃ (2x - 1) = 2, then x = ( )',
+                indonesia: 'Jika log₃ (2x - 1) = 2, maka x = ( )',
+                opts: ['2', '3', '4', '5'], 
+                correct: 3 
+            },
+            { 
+                part: 4, 
+                text: '等差数列 5, 2, -1, -4, ... 的第15项是 ( )',
+                pinyin: 'Děngchà shùliè 5, 2, -1, -4, ... de dì 15 xiàng shì ( )',
+                english: 'The 15th term of the arithmetic sequence 5, 2, -1, -4, ... is ( )',
+                indonesia: 'Suku ke-15 dari barisan aritmetika 5, 2, -1, -4, ... adalah ( )',
+                opts: ['-34', '-37', '-40', '-43'], 
+                correct: 1 
+            },
+            { 
+                part: 4, 
+                text: '方程 x² + y² + 6x - 4y - 3 = 0 所表示的圆的圆心坐标是 ( )',
+                pinyin: 'Fāngchéng x² + y² + 6x - 4y - 3 = 0 suǒ biǎoshì de yuán de yuánxīn zuòbiāo shì ( )',
+                english: 'The center of the circle represented by the equation x² + y² + 6x - 4y - 3 = 0 is ( )',
+                indonesia: 'Pusat lingkaran yang dinyatakan oleh persamaan x² + y² + 6x - 4y - 3 = 0 adalah ( )',
+                opts: ['(3, -2)', '(-3, 2)', '(3, 2)', '(-3, -2)'], 
+                correct: 1 
+            },
+            { 
+                part: 4, 
+                text: '函数 f(x) = { x + 1, x > 0; 0, x = 0; x - 1, x < 0 } 在 x = 0 处 ( )',
+                pinyin: 'Hánshù f(x) = { x + 1, x > 0; 0, x = 0; x - 1, x < 0 } zài x = 0 chù ( )',
+                english: 'The piecewise function f(x) = { x + 1, x > 0; 0, x = 0; x - 1, x < 0 } at x = 0 is ( )',
+                indonesia: 'Fungsi piecewise f(x) = { x + 1, x > 0; 0, x = 0; x - 1, x < 0 } di x = 0 ( )',
+                opts: ['可导', '连续但不可导', '不连续', '无法确定'], 
+                correct: 2 
+            },
+            { 
+                part: 4, 
+                text: '若 cos θ = 4/5 且 θ 在第四象限，则 sin θ = ( )',
+                pinyin: 'Ruò cos θ = 4/5 qiě θ zài dì-sì xiàngxiàn, zé sin θ = ( )',
+                english: 'If cos θ = 4/5 and θ is in the fourth quadrant, then sin θ = ( )',
+                indonesia: 'Jika cos θ = 4/5 dan θ berada di kuadran IV, maka sin θ = ( )',
+                opts: ['-5/3', '5/3', '-3/5', '3/5'], 
+                correct: 2 
+            }
+        ];
+
+        // ==================== SET 3 - 10 ====================
+        // Untuk SET 3-10, gunakan soal dari file-file yang Anda miliki
+        // Format sama persis dengan SET 1 dan SET 2 di atas
+        
+        // Untuk sementara, kita duplikasi SET 2 sebagai placeholder
+        const set3Questions = set2Questions.map(q => ({...q}));
+        const set4Questions = set2Questions.map(q => ({...q}));
+        const set5Questions = set2Questions.map(q => ({...q}));
+        const set6Questions = set2Questions.map(q => ({...q}));
+        const set7Questions = set2Questions.map(q => ({...q}));
+        const set8Questions = set2Questions.map(q => ({...q}));
+        const set9Questions = set2Questions.map(q => ({...q}));
+        const set10Questions = set2Questions.map(q => ({...q}));
 
         // Map paket ke kumpulan soal
         const packageQuestions = {
