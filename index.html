@@ -58,11 +58,14 @@
         .question-counter { font-size: 1.2rem; font-weight: 600; }
         .per-question-timer { background: #132433; color: white; padding: 8px 25px; border-radius: 40px; font-size: 1.4rem; font-family: monospace; }
         .question-block { margin-bottom: 30px; padding: 30px; background: #f9fcff; border-radius: 30px; border-left: 8px solid #132433; }
-        .question-text { font-size: 1.6rem; font-weight: 500; margin-bottom: 30px; }
-        .question-text .math { font-style: italic; background: #e8f0fe; padding: 2px 8px; border-radius: 10px; }
-        .options { display: flex; flex-direction: column; gap: 15px; }
-        .option-item { display: flex; align-items: center; gap: 20px; background: white; padding: 15px 30px; border-radius: 60px; border: 2px solid #e0e7ef; cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
-        .option-item:hover { border-color: #132433; }
+        .question-text { font-size: 1.4rem; font-weight: 500; margin-bottom: 20px; line-height: 1.6; }
+        .question-text .math { font-style: italic; background: #e8f0fe; padding: 2px 8px; border-radius: 10px; display: inline-block; }
+        .question-image { margin: 20px 0; text-align: center; background: #f0f4fa; padding: 20px; border-radius: 20px; border: 2px dashed #132433; }
+        .question-image img { max-width: 100%; max-height: 300px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .image-placeholder { color: #5f6b7a; font-style: italic; }
+        .options { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+        .option-item { display: flex; align-items: center; gap: 20px; background: white; padding: 15px 30px; border-radius: 60px; border: 2px solid #e0e7ef; cursor: pointer; font-size: 1.1rem; transition: 0.3s; }
+        .option-item:hover { border-color: #132433; background: #e8f0fe; }
         .option-item.selected { background: #d5e5ff; border-color: #132433; }
         .option-item input[type="radio"] { width: 22px; height: 22px; accent-color: #132433; }
         .footer-nav { display: flex; justify-content: space-between; margin: 30px 0; }
@@ -88,7 +91,6 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         .device-fingerprint { display: none; }
-        .media-placeholder { background: #f0f4fa; border: 2px dashed #132433; border-radius: 20px; padding: 20px; text-align: center; margin: 15px 0; color: #5f6b7a; }
     </style>
 </head>
 <body>
@@ -514,10 +516,26 @@
             const grid = document.getElementById('packageGrid');
             let html = '';
             for (let i = 1; i <= 10; i++) {
+                let packageName = '';
+                let packageColor = '';
+                
+                // Beri warna berbeda untuk setiap paket
+                if (i === 1) packageColor = '#28a745'; // Hijau - Gratis
+                else if (i === 2) packageColor = '#dc3545'; // Merah
+                else if (i === 3) packageColor = '#fd7e14'; // Oranye
+                else if (i === 4) packageColor = '#ffc107'; // Kuning
+                else if (i === 5) packageColor = '#17a2b8'; // Biru Muda
+                else if (i === 6) packageColor = '#6f42c1'; // Ungu
+                else if (i === 7) packageColor = '#e83e8c'; // Pink
+                else if (i === 8) packageColor = '#20c997'; // Hijau Tosca
+                else if (i === 9) packageColor = '#6610f2'; // Ungu Tua
+                else if (i === 10) packageColor = '#d63384'; // Merah Muda
+                
                 html += `
-                    <div class="package-card" onclick="selectPackage(${i})" id="package-${i}">
-                        <h3>${currentLang === 'zh' ? '包' : 'Set'} ${i}</h3>
+                    <div class="package-card" onclick="selectPackage(${i})" id="package-${i}" style="border-top: 5px solid ${packageColor};">
+                        <h3 style="color: ${packageColor};">${currentLang === 'zh' ? '包' : 'Set'} ${i}</h3>
                         <p>48 ${currentLang === 'zh' ? '题' : 'questions'}</p>
+                        ${i === 1 ? '<p style="color: #28a745; font-weight: 600;">GRATIS</p>' : '<p style="color: #dc3545; font-weight: 600;">PREMIUM</p>'}
                     </div>
                 `;
             }
@@ -544,308 +562,159 @@
         let examStarted = false;
         let examEnded = false;
 
-        // Question Bank (KUMPULAN SOAL CSCA MATEMATIKA SET 1)
-        const questionBank = [
-            // Bagian 1: Aljabar & Fungsi (Soal 1-12)
-            {
-                part: 1,
-                text: '函数 y = 3x - 2 的反函数是 ( )',
-                opts: ['y = (x + 3)/2', 'y = (x - 3)/2', 'y = (x + 2)/3', 'y = (x - 2)/3'],
-                correct: 3  // D
-            },
-            {
-                part: 1,
-                text: '不等式 x² - 5x + 6 < 0 的解集是 ( )',
-                opts: ['(-∞, 2) ∪ (3, +∞)', '(2, 3)', '(-∞, 2] ∪ [3, +∞)', '[2, 3]'],
-                correct: 1  // B
-            },
-            {
-                part: 1,
-                text: '若 a < b 且 c < d，下列哪一项是正确的? ( )',
-                opts: ['a² < b²', 'a - c < b - d', 'ac < bd', 'c³ < d³'],
-                correct: 3  // D
-            },
-            {
-                part: 1,
-                text: '不等式 |x - 3| < 2 的解集是 ( )',
-                opts: ['(1, 5)', '[1, 5]', '(-∞, 1) ∪ (5, +∞)', '(-∞, 1] ∪ [5, +∞)'],
-                correct: 0  // A
-            },
-            {
-                part: 1,
-                text: '设 i 为虚数单位，复数 z = 2/(1-i)，则 |z| = ( )',
-                opts: ['2', '√2', '2√2', '4'],
-                correct: 1  // B
-            },
-            {
-                part: 1,
-                text: '不等式 3^x > 27 的解集是 ( )',
-                opts: ['(-∞, 3)', '(3, +∞)', '(-∞, 3]', '[3, +∞)'],
-                correct: 1  // B
-            },
-            {
-                part: 1,
-                text: '函数 y = √(x-1) 的定义域是 ( )',
-                opts: ['(1, +∞)', '[1, +∞)', '(0, +∞)', '(-∞, 1]'],
-                correct: 1  // B
-            },
-            {
-                part: 1,
-                text: '不等式 log₂(x-1) > 1 的解集是 ( )',
-                opts: ['(1, 3)', '(3, +∞)', '(1, +∞)', '(-∞, 3)'],
-                correct: 1  // B
-            },
-            {
-                part: 1,
-                text: '已知 f(x) = 2x³ - 3x² - 36x + 1，则 f(x) 在区间 [-3, 4] 上的最大值是 ( )',
-                opts: ['28', '45', '63', '1'],
-                correct: 1  // B
-            },
-            {
-                part: 1,
-                text: '若关于 x 的不等式 x² + ax + 1 > 0 的解集为 R，则实数 a 的取值范围是 ( )',
-                opts: ['(-∞, -2) ∪ (2, +∞)', '[-2, 2]', '(-2, 2)', 'R'],
-                correct: 2  // C
-            },
-            {
-                part: 1,
-                text: '已知数列 {aₙ} 的前 n 项和 Sₙ = n² - 1，则 a₁₀ = ( )',
-                opts: ['18', '19', '20', '21'],
-                correct: 1  // B
-            },
-            {
-                part: 1,
-                text: '下列哪一条直线与直线 3x + y - 1 = 0 平行? ( )',
-                opts: ['3x - y + 2 = 0', '3x + y - 2 = 0', '6x - 2y + 1 = 0', 'x + 3y - 1 = 0'],
-                correct: 1  // B
-            },
-            // Bagian 2: Trigonometri & Geometri (Soal 13-24)
-            {
-                part: 2,
-                text: '若 cos α = -1/4，则 cos 2α = ( )',
-                opts: ['-7/8', '-1/2', '1/8', '7/8'],
-                correct: 0  // A
-            },
-            {
-                part: 2,
-                text: '点 P(-1, 2) 到点 Q(2, 3) 的距离是 ( )',
-                opts: ['√10', '√26', '3', '4'],
-                correct: 0  // A
-            },
-            {
-                part: 2,
-                text: '双曲线 x²/4 - y²/5 = 1 的焦点坐标是 ( )',
-                opts: ['(±3, 0)', '(0, ±3)', '(±1, 0)', '(0, ±1)'],
-                correct: 0  // A
-            },
-            {
-                part: 2,
-                text: '若 cos α = -1/2 且 π < α < 3π/2，则 sin(α/2) = ( )',
-                opts: ['-√3/2', '-1/2', '√3/2', '1/2'],
-                correct: 2  // C
-            },
-            {
-                part: 2,
-                text: '函数 y = 5tan(x - π/4) 的定义域是 ( )',
-                opts: ['{x | x ≠ kπ + π/4, k ∈ Z}', '{x | x ≠ kπ + 3π/4, k ∈ Z}', '{x | x ≠ 2kπ + π/4, k ∈ Z}', '{x | x ≠ 2kπ + 3π/4, k ∈ Z}'],
-                correct: 1  // B
-            },
-            {
-                part: 2,
-                text: '某圆锥的母线长为 4，其侧面展开图为半圆面，则该圆锥的高是 ( )',
-                opts: ['2√3', '2√2', '2', '√3'],
-                correct: 0  // A
-            },
-            {
-                part: 2,
-                text: '两平面 x + 2y - z + 1 = 0 和 x - 2y + z - 3 = 0 的夹角是 ( )',
-                opts: ['π/3', 'arccos(1/6)', 'π/2', 'arccos(5/6)'],
-                correct: 2  // C (berdasarkan kunci)
-            },
-            {
-                part: 2,
-                text: '已知向量 a, b 满足 |a| = 1, |b| = √3，若 |2a - b| = √13，则向量 a 与 b 的夹角为 ( )',
-                opts: ['30°', '60°', '120°', '150°'],
-                correct: 2  // C
-            },
-            {
-                part: 2,
-                text: '椭圆中心在原点，焦点在x轴上，一个顶点为 (0, 1)，离心率为 (2√5)/5，该椭圆的方程是 ( )',
-                opts: ['x²/5 + y² = 1', 'x² + y²/5 = 1', 'x²/4 + y²/5 = 1', 'x²/5 + y²/4 = 1'],
-                correct: 0  // A
-            },
-            {
-                part: 2,
-                text: '在△ABC中，角A、B、C的对边分别为a、b、c，且 2a cos A = b cos C + c cos B，则角A = ( )',
-                opts: ['30°', '45°', '60°', '90°'],
-                correct: 2  // C
-            },
-            {
-                part: 2,
-                text: '若双曲线 x²/m - y² = 1 (m > 0) 的渐近线与圆 x² + y² - 4y + 3 = 0 相切，则 m = ( )',
-                opts: ['1/3', '√3', '3', '9'],
-                correct: 2  // C (berdasarkan kunci)
-            },
-            {
-                part: 2,
-                text: '函数 f(x) = sin x + √3 cos x 在区间 [0, π/2] 上的最大值是 ( )',
-                opts: ['1', '√3', '2', '√3 + 1'],
-                correct: 2  // C
-            },
-            // Bagian 3: Kalkulus & Analisis (Soal 25-36)
-            {
-                part: 3,
-                text: '极限 lim_{x→0} (sin x)/x = ( )',
-                opts: ['0', '1', '∞', 'Tidak ada'],
-                correct: 1  // B
-            },
-            {
-                part: 3,
-                text: '函数 f(x) = x³ - 3x + 1 的拐点是 ( )',
-                opts: ['(0, 1)', '(1, -1)', '(-1, 3)', '(0, -1)'],
-                correct: 0  // A
-            },
-            {
-                part: 3,
-                text: '不定积分 ∫ (2x + 1) dx = ( )',
-                opts: ['x² + x + C', 'x² + C', '2x² + x + C', 'x² + 2x + C'],
-                correct: 0  // A
-            },
-            {
-                part: 3,
-                text: '导数 d/dx [ln(x² + 1)] = ( )',
-                opts: ['1/(x² + 1)', '2x/(x² + 1)', '2x', '2/(x² + 1)'],
-                correct: 1  // B
-            },
-            {
-                part: 3,
-                text: '曲线 y = x² 在点 (1, 1) 处的切线斜率是 ( )',
-                opts: ['1', '2', '0', '-1'],
-                correct: 1  // B
-            },
-            {
-                part: 3,
-                text: '定积分 ∫₀¹ x² dx = ( )',
-                opts: ['1/3', '1/2', '1', '2'],
-                correct: 0  // A
-            },
-            {
-                part: 3,
-                text: '函数 f(x) = e^x 的麦克劳林级数展开式中，x³ 项的系数是 ( )',
-                opts: ['1', '1/2', '1/6', '1/24'],
-                correct: 2  // C
-            },
-            {
-                part: 3,
-                text: '曲线 y = x³ - 3x 的单调递减区间是 ( )',
-                opts: ['(-∞, -1)', '(1, +∞)', '(-1, 1)', '(-∞, +∞)'],
-                correct: 2  // C
-            },
-            {
-                part: 3,
-                text: '若 f(x) = x² + 1，则 f\'(2) = ( )',
-                opts: ['4', '5', '2', '3'],
-                correct: 0  // A
-            },
-            {
-                part: 3,
-                text: '极限 lim_{x→∞} (1 + 1/x)^x = ( )',
-                opts: ['1', 'e', '∞', 'Tidak ada'],
-                correct: 1  // B
-            },
-            {
-                part: 3,
-                text: '函数 f(x) = x⁴ - 2x² 的极小值点是 ( )',
-                opts: ['x = 0', 'x = ±1', 'x = 1', 'x = -1'],
-                correct: 1  // B
-            },
-            {
-                part: 3,
-                text: '曲线 y = ln x 在点 (1, 0) 处的切线方程是 ( )',
-                opts: ['y = x - 1', 'y = -x + 1', 'y = x', 'y = 0'],
-                correct: 0  // A
-            },
-            // Bagian 4: Probabilitas, Statistik & Lainnya (Soal 37-48)
-            {
-                part: 4,
-                text: '先后两次抛掷同一个骰子，将得到的点数分别记为a, b，则a, b, 4能构成钝角三角形的概率是 ( )',
-                opts: ['1/6', '2/9', '13/36', '1/2'],
-                correct: 2  // C
-            },
-            {
-                part: 4,
-                text: '已知 P(A) = 0.5, P(B) = 0.4，且A与B相互独立，则 P(A∪B) = ( )',
-                opts: ['0.9', '0.2', '0.7', '0.5'],
-                correct: 2  // C
-            },
-            {
-                part: 4,
-                text: '一组数据 1, 2, 3, 4, 5 的方差是 ( )',
-                opts: ['2', '√2', '2.5', '3'],
-                correct: 0  // A
-            },
-            {
-                part: 4,
-                text: '从装有3个红球和2个白球的袋中随机取出2个球，则两个球颜色相同的概率是 ( )',
-                opts: ['2/5', '3/5', '1/5', '4/5'],
-                correct: 0  // A
-            },
-            {
-                part: 4,
-                text: '复数 z = 1 + i，则 z² = ( )',
-                opts: ['2i', '1 - i', '0', '2'],
-                correct: 0  // A
-            },
-            {
-                part: 4,
-                text: '已知数列 {aₙ} 满足 a₁ = 2, aₙ = 1 + 1/aₙ₋₁ (n ≥ 2)，则 a₄ = ( )',
-                opts: ['3/2', '5/3', '8/5', '13/8'],
-                correct: 3  // D
-            },
-            {
-                part: 4,
-                text: '直线 3x + 4y - 5 = 0 与圆 x² + y² = 4 的位置关系是 ( )',
-                opts: ['Bersinggungan', 'Berpotongan di dua titik', 'Tidak berpotongan', 'Garis melalui pusat lingkaran'],
-                correct: 0  // A
-            },
-            {
-                part: 4,
-                text: '若 logₐ 8 = 3，则 a = ( )',
-                opts: ['2', '3', '4', '8'],
-                correct: 0  // A
-            },
-            {
-                part: 4,
-                text: '等差数列 2, 5, 8, 11, ... 的第10项是 ( )',
-                opts: ['29', '30', '31', '32'],
-                correct: 0  // A
-            },
-            {
-                part: 4,
-                text: '方程 x² + y² - 2x + 4y + 1 = 0 所表示的圆的半径是 ( )',
-                opts: ['1', '2', '3', '4'],
-                correct: 1  // B
-            },
-            {
-                part: 4,
-                text: '函数 f(x) = |x| 在 x = 0 处 ( )',
-                opts: ['可导 (differentiable)', '连续但不可导 (continuous but not differentiable)', '不连续 (discontinuous)', '无法确定 (cannot be determined)'],
-                correct: 1  // B
-            },
-            {
-                part: 4,
-                text: '若 sin θ = 3/5 且 θ 在第二象限，则 tan θ = ( )',
-                opts: ['-3/4', '3/4', '-4/3', '4/3'],
-                correct: 0  // A
-            }
+        // ==================== QUESTION BANK ====================
+        // SET 1 - Updated with new questions from KUMPULAN SOAL CSCA MATEMATIKA-01.docx
+        const set1Questions = [
+            // Bagian 1: Aljabar & Fungsi (Soal 1-12) - SET 1
+            { part: 1, text: '函数 y = 3x - 2 的反函数是 ( )', opts: ['y = (x + 3)/2', 'y = (x - 3)/2', 'y = (x + 2)/3', 'y = (x - 2)/3'], correct: 3 },
+            { part: 1, text: '不等式 x² - 5x + 6 < 0 的解集是 ( )', opts: ['(-∞, 2) ∪ (3, +∞)', '(2, 3)', '(-∞, 2] ∪ [3, +∞)', '[2, 3]'], correct: 1 },
+            { part: 1, text: '若 a < b 且 c < d，下列哪一项是正确的? ( )', opts: ['a² < b²', 'a - c < b - d', 'ac < bd', 'c³ < d³'], correct: 3 },
+            { part: 1, text: '不等式 |x - 3| < 2 的解集是 ( )', opts: ['(1, 5)', '[1, 5]', '(-∞, 1) ∪ (5, +∞)', '(-∞, 1] ∪ [5, +∞)'], correct: 0 },
+            { part: 1, text: '设 i 为虚数单位，复数 z = 2/(1-i)，则 |z| = ( )', opts: ['2', '√2', '2√2', '4'], correct: 1 },
+            { part: 1, text: '不等式 3^x > 27 的解集是 ( )', opts: ['(-∞, 3)', '(3, +∞)', '(-∞, 3]', '[3, +∞)'], correct: 1 },
+            { part: 1, text: '函数 y = √(x-1) 的定义域是 ( )', opts: ['(1, +∞)', '[1, +∞)', '(0, +∞)', '(-∞, 1]'], correct: 1 },
+            { part: 1, text: '不等式 log₂(x-1) > 1 的解集是 ( )', opts: ['(1, 3)', '(3, +∞)', '(1, +∞)', '(-∞, 3)'], correct: 1 },
+            { part: 1, text: '已知 f(x) = 2x³ - 3x² - 36x + 1，则 f(x) 在区间 [-3, 4] 上的最大值是 ( )', opts: ['28', '45', '63', '1'], correct: 1 },
+            { part: 1, text: '若关于 x 的不等式 x² + ax + 1 > 0 的解集为 R，则实数 a 的取值范围是 ( )', opts: ['(-∞, -2) ∪ (2, +∞)', '[-2, 2]', '(-2, 2)', 'R'], correct: 2 },
+            { part: 1, text: '已知数列 {aₙ} 的前 n 项和 Sₙ = n² - 1，则 a₁₀ = ( )', opts: ['18', '19', '20', '21'], correct: 1 },
+            { part: 1, text: '下列哪一条直线与直线 3x + y - 1 = 0 平行? ( )', opts: ['3x - y + 2 = 0', '3x + y - 2 = 0', '6x - 2y + 1 = 0', 'x + 3y - 1 = 0'], correct: 1 },
+            
+            // Bagian 2: Trigonometri & Geometri (Soal 13-24) - SET 1
+            { part: 2, text: '若 cos α = -1/4，则 cos 2α = ( )', opts: ['-7/8', '-1/2', '1/8', '7/8'], correct: 0, image: true },
+            { part: 2, text: '点 P(-1, 2) 到点 Q(2, 3) 的距离是 ( )', opts: ['√10', '√26', '3', '4'], correct: 0, image: true },
+            { part: 2, text: '双曲线 x²/4 - y²/5 = 1 的焦点坐标是 ( )', opts: ['(±3, 0)', '(0, ±3)', '(±1, 0)', '(0, ±1)'], correct: 0, image: true },
+            { part: 2, text: '若 cos α = -1/2 且 π < α < 3π/2，则 sin(α/2) = ( )', opts: ['-√3/2', '-1/2', '√3/2', '1/2'], correct: 2 },
+            { part: 2, text: '函数 y = 5tan(x - π/4) 的定义域是 ( )', opts: ['{x | x ≠ kπ + π/4, k ∈ Z}', '{x | x ≠ kπ + 3π/4, k ∈ Z}', '{x | x ≠ 2kπ + π/4, k ∈ Z}', '{x | x ≠ 2kπ + 3π/4, k ∈ Z}'], correct: 1 },
+            { part: 2, text: '某圆锥的母线长为 4，其侧面展开图为半圆面，则该圆锥的高是 ( )', opts: ['2√3', '2√2', '2', '√3'], correct: 0, image: true },
+            { part: 2, text: '两平面 x + 2y - z + 1 = 0 和 x - 2y + z - 3 = 0 的夹角是 ( )', opts: ['π/3', 'arccos(1/6)', 'π/2', 'arccos(5/6)'], correct: 2 },
+            { part: 2, text: '已知向量 a, b 满足 |a| = 1, |b| = √3，若 |2a - b| = √13，则向量 a 与 b 的夹角为 ( )', opts: ['30°', '60°', '120°', '150°'], correct: 2 },
+            { part: 2, text: '椭圆中心在原点，焦点在x轴上，一个顶点为 (0, 1)，离心率为 (2√5)/5，该椭圆的方程是 ( )', opts: ['x²/5 + y² = 1', 'x² + y²/5 = 1', 'x²/4 + y²/5 = 1', 'x²/5 + y²/4 = 1'], correct: 0, image: true },
+            { part: 2, text: '在△ABC中，角A、B、C的对边分别为a、b、c，且 2a cos A = b cos C + c cos B，则角A = ( )', opts: ['30°', '45°', '60°', '90°'], correct: 2 },
+            { part: 2, text: '若双曲线 x²/m - y² = 1 (m > 0) 的渐近线与圆 x² + y² - 4y + 3 = 0 相切，则 m = ( )', opts: ['1/3', '√3', '3', '9'], correct: 0 },
+            { part: 2, text: '函数 f(x) = sin x + √3 cos x 在区间 [0, π/2] 上的最大值是 ( )', opts: ['1', '√3', '2', '√3 + 1'], correct: 2 },
+            
+            // Bagian 3: Kalkulus & Analisis (Soal 25-36) - SET 1
+            { part: 3, text: '极限 lim_{x→0} (sin x)/x = ( )', opts: ['0', '1', '∞', 'Tidak ada'], correct: 1 },
+            { part: 3, text: '函数 f(x) = x³ - 3x + 1 的拐点是 ( )', opts: ['(0, 1)', '(1, -1)', '(-1, 3)', '(0, -1)'], correct: 0 },
+            { part: 3, text: '不定积分 ∫ (2x + 1) dx = ( )', opts: ['x² + x + C', 'x² + C', '2x² + x + C', 'x² + 2x + C'], correct: 0 },
+            { part: 3, text: '导数 d/dx [ln(x² + 1)] = ( )', opts: ['1/(x² + 1)', '2x/(x² + 1)', '2x', '2/(x² + 1)'], correct: 1 },
+            { part: 3, text: '曲线 y = x² 在点 (1, 1) 处的切线斜率是 ( )', opts: ['1', '2', '0', '-1'], correct: 1 },
+            { part: 3, text: '定积分 ∫₀¹ x² dx = ( )', opts: ['1/3', '1/2', '1', '2'], correct: 0 },
+            { part: 3, text: '函数 f(x) = e^x 的麦克劳林级数展开式中，x³ 项的系数是 ( )', opts: ['1', '1/2', '1/6', '1/24'], correct: 2 },
+            { part: 3, text: '曲线 y = x³ - 3x 的单调递减区间是 ( )', opts: ['(-∞, -1)', '(1, +∞)', '(-1, 1)', '(-∞, +∞)'], correct: 2 },
+            { part: 3, text: '若 f(x) = x² + 1，则 f\'(2) = ( )', opts: ['4', '5', '2', '3'], correct: 0 },
+            { part: 3, text: '极限 lim_{x→∞} (1 + 1/x)^x = ( )', opts: ['1', 'e', '∞', 'Tidak ada'], correct: 1 },
+            { part: 3, text: '函数 f(x) = x⁴ - 2x² 的极小值点是 ( )', opts: ['x = 0', 'x = ±1', 'x = 1', 'x = -1'], correct: 1 },
+            { part: 3, text: '曲线 y = ln x 在点 (1, 0) 处的切线方程是 ( )', opts: ['y = x - 1', 'y = -x + 1', 'y = x', 'y = 0'], correct: 0 },
+            
+            // Bagian 4: Probabilitas, Statistik & Lainnya (Soal 37-48) - SET 1
+            { part: 4, text: '先后两次抛掷同一个骰子，将得到的点数分别记为a, b，则a, b, 4能构成钝角三角形的概率是 ( )', opts: ['1/6', '2/9', '13/36', '1/2'], correct: 2 },
+            { part: 4, text: '已知 P(A) = 0.5, P(B) = 0.4，且A与B相互独立，则 P(A∪B) = ( )', opts: ['0.9', '0.2', '0.7', '0.5'], correct: 2 },
+            { part: 4, text: '一组数据 1, 2, 3, 4, 5 的方差是 ( )', opts: ['2', '√2', '2.5', '3'], correct: 0 },
+            { part: 4, text: '从装有3个红球和2个白球的袋中随机取出2个球，则两个球颜色相同的概率是 ( )', opts: ['2/5', '3/5', '1/5', '4/5'], correct: 0 },
+            { part: 4, text: '复数 z = 1 + i，则 z² = ( )', opts: ['2i', '1 - i', '0', '2'], correct: 0 },
+            { part: 4, text: '已知数列 {aₙ} 满足 a₁ = 2, aₙ = 1 + 1/aₙ₋₁ (n ≥ 2)，则 a₄ = ( )', opts: ['3/2', '5/3', '8/5', '13/8'], correct: 3 },
+            { part: 4, text: '直线 3x + 4y - 5 = 0 与圆 x² + y² = 4 的位置关系是 ( )', opts: ['Bersinggungan', 'Berpotongan di dua titik', 'Tidak berpotongan', 'Garis melalui pusat lingkaran'], correct: 0, image: true },
+            { part: 4, text: '若 logₐ 8 = 3，则 a = ( )', opts: ['2', '3', '4', '8'], correct: 0 },
+            { part: 4, text: '等差数列 2, 5, 8, 11, ... 的第10项是 ( )', opts: ['29', '30', '31', '32'], correct: 0 },
+            { part: 4, text: '方程 x² + y² - 2x + 4y + 1 = 0 所表示的圆的半径是 ( )', opts: ['1', '2', '3', '4'], correct: 1, image: true },
+            { part: 4, text: '函数 f(x) = |x| 在 x = 0 处 ( )', opts: ['可导 (differentiable)', '连续但不可导 (continuous but not differentiable)', '不连续 (discontinuous)', '无法确定 (cannot be determined)'], correct: 1 },
+            { part: 4, text: '若 sin θ = 3/5 且 θ 在第二象限，则 tan θ = ( )', opts: ['-3/4', '3/4', '-4/3', '4/3'], correct: 0 }
         ];
+
+        // SET 2 - Updated with new questions from KUMPULAN SOAL CSCA MATEMATIKA_2.docx
+        const set2Questions = [
+            // Bagian 1: Aljabar & Fungsi (Soal 1-12) - SET 2
+            { part: 1, text: '函数 y = 5x + 3 的反函数是 ( )', opts: ['y = (x - 5)/3', 'y = (x - 3)/5', 'y = (x + 3)/5', 'y = (x + 5)/3'], correct: 1 },
+            { part: 1, text: '不等式 x² - 3x - 4 > 0 的解集是 ( )', opts: ['(-1, 4)', '[-1, 4]', '(-∞, -1) ∪ (4, +∞)', '(-∞, -1] ∪ [4, +∞)'], correct: 2 },
+            { part: 1, text: '若 a > b 且 c > d，下列哪一项一定成立? ( )', opts: ['a² > b²', 'a/c > b/d', 'a + c > b + d', 'ac > bd'], correct: 2 },
+            { part: 1, text: '不等式 |2x + 1| ≤ 3 的解集是 ( )', opts: ['(-2, 1)', '[-2, 1]', '(-∞, -2) ∪ (1, +∞)', '(-∞, -2] ∪ [1, +∞)'], correct: 1 },
+            { part: 1, text: '设 i 为虚数单位，复数 z = (3+i)/(1-i)，则 z 的共轭复数 = ( )', opts: ['1 + 2i', '1 - 2i', '2 + i', '2 - i'], correct: 1 },
+            { part: 1, text: '不等式 (1/2)^x < 1/8 的解集是 ( )', opts: ['(-∞, 3)', '(3, +∞)', '(-∞, -3)', '(-3, +∞)'], correct: 1 },
+            { part: 1, text: '函数 y = 1 / √(4 - x²) 的定义域是 ( )', opts: ['(-2, 2)', '[-2, 2]', '(0, 2)', '(-∞, -2) ∪ (2, +∞)'], correct: 0 },
+            { part: 1, text: '不等式 log₃(2x - 1) < 2 的解集是 ( )', opts: ['(1/2, 5)', '(1/2, 5]', '(-∞, 5)', '(5, +∞)'], correct: 0 },
+            { part: 1, text: '已知函数 f(x) = -x³ + 3x² + 9x - 2，则 f(x) 在区间 [-2, 4] 上的最小值是 ( )', opts: ['-7', '0', '18', '25'], correct: 0 },
+            { part: 1, text: '若关于 x 的二次方程 x² - 2x + k = 0 有实数根，则实数 k 的取值范围是 ( )', opts: ['k ≤ 1', 'k ≥ 1', 'k ≤ -1', 'k ≥ -1'], correct: 0 },
+            { part: 1, text: '已知等比数列 {aₙ} 中，a₂ = 4，a₅ = 32，则其公比 q = ( )', opts: ['2', '4', '6', '8'], correct: 0 },
+            { part: 1, text: '直线 2x - y + 3 = 0 与直线 4x - 2y + 5 = 0 的位置关系是 ( )', opts: ['Berpotongan tegak lurus', 'Berpotongan tidak tegak lurus', 'Sejajar', 'Berimpit'], correct: 2 },
+            
+            // Bagian 2: Trigonometri & Geometri (Soal 13-24) - SET 2
+            { part: 2, text: '若 sin α = 3/5，且 α 在第二象限，则 sin 2α = ( )', opts: ['-24/25', '-12/25', '12/25', '24/25'], correct: 0 },
+            { part: 2, text: '点 A(2, -1) 到直线 3x - 4y + 5 = 0 的距离是 ( )', opts: ['1', '2', '3', '4'], correct: 2, image: true },
+            { part: 2, text: '椭圆 x²/9 + y²/4 = 1 的离心率是 ( )', opts: ['√5/3', '√13/3', '√5/2', '√13/2'], correct: 0, image: true },
+            { part: 2, text: '若 sin θ = -4/5 且 π < θ < 3π/2，则 cos(θ/2) = ( )', opts: ['-√5/5', '-2√5/5', '√5/5', '2√5/5'], correct: 0 },
+            { part: 2, text: '函数 y = 3cot(x + π/6) 的定义域是 ( )', opts: ['{x | x ≠ kπ - π/6, k ∈ Z}', '{x | x ≠ kπ + π/6, k ∈ Z}', '{x | x ≠ 2kπ - π/6, k ∈ Z}', '{x | x ≠ 2kπ + π/6, k ∈ Z}'], correct: 0 },
+            { part: 2, text: '已知圆柱的侧面展开图是边长为 4 的正方形，则该圆柱的体积是 ( )', opts: ['8/π', '16/π', '8π', '16π'], correct: 1, image: true },
+            { part: 2, text: '两平面 2x - y + z - 2 = 0 和 x + 2y - z + 1 = 0 的夹角余弦值是 ( )', opts: ['-1/6', '-1/3', '1/6', '1/3'], correct: 0 },
+            { part: 2, text: '已知向量 |a| = 2, |b| = 2，且 a·b = 2，则 |a - b| = ( )', opts: ['2', '√3', '2√3', '4'], correct: 0 },
+            { part: 2, text: '双曲线中心在原点，焦点在y轴上，一个顶点为 (0, 3)，离心率为 5/3，该双曲线的方程是 ( )', opts: ['x²/4 - y²/9 = 1', 'y²/9 - x²/4 = 1', 'y²/9 - x²/16 = 1', 'x²/16 - y²/9 = 1'], correct: 1, image: true },
+            { part: 2, text: '在△ABC中，角A、B、C的对边分别为a、b、c，且 a² + b² - c² = √3 ab，则角C = ( )', opts: ['30°', '45°', '60°', '90°'], correct: 0, image: true },
+            { part: 2, text: '抛物线 y² = 8x 的焦点到准线的距离是 ( )', opts: ['2', '4', '6', '8'], correct: 1, image: true },
+            { part: 2, text: '函数 f(x) = √3 sin 2x - cos 2x 的值域是 ( )', opts: ['[-2, 2]', '[-1, 1]', '[-√3, √3]', '[-√2, √2]'], correct: 0 },
+            
+            // Bagian 3: Kalkulus & Analisis (Soal 25-36) - SET 2
+            { part: 3, text: '极限 lim_{x→0} (tan x)/x = ( )', opts: ['0', '1', '∞', 'Tidak ada'], correct: 1 },
+            { part: 3, text: '函数 f(x) = x⁴ - 6x² 的拐点个数是 ( )', opts: ['0', '1', '2', '3'], correct: 2 },
+            { part: 3, text: '不定积分 ∫ (3x² - 2x + 1) dx = ( )', opts: ['x³ - x² + x + C', 'x³ - x² + C', '3x³ - 2x² + x + C', '6x - 2 + C'], correct: 0 },
+            { part: 3, text: '导数 d/dx [e^(2x+1)] = ( )', opts: ['e^(2x+1)', '2e^(2x+1)', '(2x+1)e^(2x)', '2e^(2x)'], correct: 1 },
+            { part: 3, text: '曲线 y = x³ 在点 (2, 8) 处的切线斜率是 ( )', opts: ['4', '6', '8', '12'], correct: 3 },
+            { part: 3, text: '定积分 ∫₁² (2x) dx = ( )', opts: ['1', '2', '3', '4'], correct: 2 },
+            { part: 3, text: '函数 f(x) = sin x 的麦克劳林级数展开式中，x⁵ 项的系数是 ( )', opts: ['-1/120', '1/120', '-1/6', '1/6'], correct: 1 },
+            { part: 3, text: '函数 y = 2x³ - 6x 的单调递增区间是 ( )', opts: ['(-∞, -1) ∪ (1, +∞)', '(-1, 1)', '(-∞, -1]', '[1, +∞)'], correct: 0 },
+            { part: 3, text: '若 f(x) = ln(2x)，则 f\'(1) = ( )', opts: ['1', '1/2', '2', '0'], correct: 0 },
+            { part: 3, text: '极限 lim_{x→0} (1 - cos x)/x² = ( )', opts: ['0', '1/2', '1', '∞'], correct: 1 },
+            { part: 3, text: '函数 f(x) = x³ - 3x 的极大值点是 ( )', opts: ['x = -1', 'x = 1', 'x = 0', 'x = -3'], correct: 0 },
+            { part: 3, text: '曲线 y = e^x 在点 (0, 1) 处的切线方程是 ( )', opts: ['y = x + 1', 'y = x', 'y = -x + 1', 'y = 2x + 1'], correct: 0 },
+            
+            // Bagian 4: Probabilitas, Statistik & Lainnya (Soal 37-48) - SET 2
+            { part: 4, text: '从标有 1,2,3,4,5 的五张卡片中，依次抽出两张（不放回），则第一次抽到奇数且第二次抽到偶数的概率是 ( )', opts: ['3/10', '1/5', '2/5', '3/5'], correct: 0 },
+            { part: 4, text: '已知 P(A) = 0.6, P(B) = 0.5，且A与B互斥，则 P(A∪B) = ( )', opts: ['0.1', '0.3', '1.1', '0.11'], correct: 2 },
+            { part: 4, text: '一组数据 10, 20, 30, 40, 50 的标准差是 ( )', opts: ['√200', '√250', '√500', '√1000'], correct: 0 },
+            { part: 4, text: '从装有4个红球和4个白球的袋中随机取出2个球，则两个球颜色不同的概率是 ( )', opts: ['4/7', '1/2', '8/15', '16/21'], correct: 0 },
+            { part: 4, text: '复数 z = 2 - i，则其模 |z| = ( )', opts: ['√3', '√5', '3', '5'], correct: 1 },
+            { part: 4, text: '已知数列 {aₙ} 满足 a₁ = 1, aₙ = 2aₙ₋₁ + 1 (n ≥ 2)，则 a₅ = ( )', opts: ['15', '31', '63', '127'], correct: 1 },
+            { part: 4, text: '直线 4x + 3y - 10 = 0 与圆 x² + y² = 9 的位置关系是 ( )', opts: ['Bersinggungan', 'Berpotongan di dua titik', 'Tidak berpotongan', 'Garis melalui pusat lingkaran'], correct: 1, image: true },
+            { part: 4, text: '若 log₃ (2x - 1) = 2，则 x = ( )', opts: ['2', '3', '4', '5'], correct: 3 },
+            { part: 4, text: '等差数列 5, 2, -1, -4, ... 的第15项是 ( )', opts: ['-34', '-37', '-40', '-43'], correct: 1 },
+            { part: 4, text: '方程 x² + y² + 6x - 4y - 3 = 0 所表示的圆的圆心坐标是 ( )', opts: ['(3, -2)', '(-3, 2)', '(3, 2)', '(-3, -2)'], correct: 1 },
+            { part: 4, text: '函数 f(x) = { x + 1, x > 0; 0, x = 0; x - 1, x < 0 } 在 x = 0 处 ( )', opts: ['可导', '连续但不可导', '不连续', '无法确定'], correct: 2 },
+            { part: 4, text: '若 cos θ = 4/5 且 θ 在第四象限，则 sin θ = ( )', opts: ['-5/3', '5/3', '-3/5', '3/5'], correct: 2 }
+        ];
+
+        // SET 3-10 (Anda bisa menambahkan soal untuk set 3-10 di sini)
+        // Untuk sementara, kita duplikasi set 2 untuk set 3-10 sebagai placeholder
+        const set3Questions = set2Questions.map(q => ({...q}));
+        const set4Questions = set2Questions.map(q => ({...q}));
+        const set5Questions = set2Questions.map(q => ({...q}));
+        const set6Questions = set2Questions.map(q => ({...q}));
+        const set7Questions = set2Questions.map(q => ({...q}));
+        const set8Questions = set2Questions.map(q => ({...q}));
+        const set9Questions = set2Questions.map(q => ({...q}));
+        const set10Questions = set2Questions.map(q => ({...q}));
+
+        // Map paket ke kumpulan soal
+        const packageQuestions = {
+            1: set1Questions,
+            2: set2Questions,
+            3: set3Questions,
+            4: set4Questions,
+            5: set5Questions,
+            6: set6Questions,
+            7: set7Questions,
+            8: set8Questions,
+            9: set9Questions,
+            10: set10Questions
+        };
 
         function startExam() {
             if (!selectedPackage) return;
             
+            const questions = packageQuestions[selectedPackage];
+            const totalQuestions = questions.length;
+            
             currentIndex = 0;
-            userAnswers = new Array(48).fill(null);
-            timeSpentPerQuestion = new Array(48).fill(0);
+            userAnswers = new Array(totalQuestions).fill(null);
+            timeSpentPerQuestion = new Array(totalQuestions).fill(0);
             globalTimeLeft = 60 * 60;
             examStarted = true;
             examEnded = false;
@@ -854,17 +723,26 @@
             document.getElementById('packageSelectionView').style.display = 'none';
             document.getElementById('examView').style.display = 'block';
             document.getElementById('resultView').style.display = 'none';
+            document.getElementById('progressText').innerText = `第 1 / ${totalQuestions} 题`;
             
-            renderQuestion(currentIndex);
+            renderQuestion(currentIndex, questions);
             startGlobalTimer();
             startPerQuestionTimer();
         }
 
-        function renderQuestion(index) {
-            const q = questionBank[index];
+        function renderQuestion(index, questions = packageQuestions[selectedPackage]) {
+            const q = questions[index];
             let html = `<div class="question-block">
-                <div class="question-text">${index+1}. ${q.text}</div>
-                <div class="options">`;
+                <div class="question-text">${index+1}. ${q.text}</div>`;
+            
+            // Tampilkan placeholder gambar jika soal memiliki gambar
+            if (q.image) {
+                html += `<div class="question-image">
+                    <div class="image-placeholder">[Gambar untuk soal ini]</div>
+                </div>`;
+            }
+            
+            html += `<div class="options">`;
             
             q.opts.forEach((opt, optIdx) => {
                 let checked = (userAnswers[index] === optIdx) ? 'checked' : '';
@@ -886,14 +764,15 @@
                         alert('Answer cannot be changed');
                     } else if (userAnswers[qIdx] === null) {
                         userAnswers[qIdx] = oIdx;
-                        renderQuestion(currentIndex);
+                        renderQuestion(currentIndex, questions);
                     }
                 });
             });
 
+            const totalQuestions = questions.length;
             document.getElementById('prevBtn').disabled = (index === 0);
-            document.getElementById('nextBtn').disabled = (index === 47);
-            document.getElementById('progressText').innerText = `第 ${index+1} / 48 题`;
+            document.getElementById('nextBtn').disabled = (index === totalQuestions - 1);
+            document.getElementById('progressText').innerText = `第 ${index+1} / ${totalQuestions} 题`;
         }
 
         function startGlobalTimer() {
@@ -927,7 +806,10 @@
         }
 
         function moveToQuestion(newIndex) {
-            if (newIndex < 0 || newIndex >= 48) return;
+            const questions = packageQuestions[selectedPackage];
+            if (!questions) return;
+            
+            if (newIndex < 0 || newIndex >= questions.length) return;
             
             stopPerQuestionTimer();
             currentIndex = newIndex;
@@ -938,7 +820,7 @@
                 document.getElementById('perQuestionTimer').innerText = elapsed.toFixed(1) + ' s';
             }, 100);
             
-            renderQuestion(currentIndex);
+            renderQuestion(currentIndex, questions);
         }
 
         function finishExam() {
@@ -949,13 +831,24 @@
             clearInterval(globalTimerInterval);
             stopPerQuestionTimer();
             
+            const questions = packageQuestions[selectedPackage];
+            const totalQuestions = questions.length;
+            
             let partCorrect = [0,0,0,0];
-            for (let i = 0; i < 48; i++) {
-                let part = questionBank[i].part - 1;
-                if (userAnswers[i] === questionBank[i].correct) partCorrect[part]++;
+            let partTotal = [0,0,0,0];
+            
+            for (let i = 0; i < totalQuestions; i++) {
+                let part = questions[i].part - 1;
+                partTotal[part]++;
+                if (userAnswers[i] === questions[i].correct) partCorrect[part]++;
             }
             
-            let weighted = (partCorrect[0]/17)*35 + (partCorrect[1]/14)*30 + (partCorrect[2]/10)*20 + (partCorrect[3]/7)*15;
+            // Bobot: Aljabar 35%, Kalkulus 30%, Geometri 20%, Statistik 15%
+            let weighted = 0;
+            if (partTotal[0] > 0) weighted += (partCorrect[0]/partTotal[0]) * 35;
+            if (partTotal[1] > 0) weighted += (partCorrect[1]/partTotal[1]) * 30;
+            if (partTotal[2] > 0) weighted += (partCorrect[2]/partTotal[2]) * 20;
+            if (partTotal[3] > 0) weighted += (partCorrect[3]/partTotal[3]) * 15;
             
             document.getElementById('examView').style.display = 'none';
             document.getElementById('resultView').style.display = 'block';
@@ -966,10 +859,10 @@
                 </div>
                 <div class="english-summary">
                     <strong>Score Summary</strong><br>
-                    Algebra: ${partCorrect[0]}/17 (${((partCorrect[0]/17)*100).toFixed(1)}%)<br>
-                    Calculus: ${partCorrect[1]}/14 (${((partCorrect[1]/14)*100).toFixed(1)}%)<br>
-                    Geometry: ${partCorrect[2]}/10 (${((partCorrect[2]/10)*100).toFixed(1)}%)<br>
-                    Statistics: ${partCorrect[3]}/7 (${((partCorrect[3]/7)*100).toFixed(1)}%)<br>
+                    Algebra: ${partCorrect[0]}/${partTotal[0]} (${partTotal[0] > 0 ? ((partCorrect[0]/partTotal[0])*100).toFixed(1) : 0}%)<br>
+                    Calculus: ${partCorrect[1]}/${partTotal[1]} (${partTotal[1] > 0 ? ((partCorrect[1]/partTotal[1])*100).toFixed(1) : 0}%)<br>
+                    Geometry: ${partCorrect[2]}/${partTotal[2]} (${partTotal[2] > 0 ? ((partCorrect[2]/partTotal[2])*100).toFixed(1) : 0}%)<br>
+                    Statistics: ${partCorrect[3]}/${partTotal[3]} (${partTotal[3] > 0 ? ((partCorrect[3]/partTotal[3])*100).toFixed(1) : 0}%)<br>
                     Total Weighted Score: ${weighted.toFixed(2)} / 100
                 </div>
             `;
