@@ -54,9 +54,9 @@
         .question-block { margin-bottom: 30px; padding: 30px; background: #f9fcff; border-radius: 30px; border-left: 8px solid #132433; }
         .question-text { font-size: 1.4rem; font-weight: 500; margin-bottom: 20px; line-height: 1.6; }
         .question-text .math { font-style: italic; background: #e8f0fe; padding: 2px 8px; border-radius: 10px; display: inline-block; }
-        .question-image { margin: 20px 0; text-align: center; background: #f0f4fa; padding: 20px; border-radius: 20px; border: 2px dashed #132433; }
-        .question-image img { max-width: 100%; max-height: 300px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .image-placeholder { color: #5f6b7a; font-style: italic; padding: 20px; background: #e8f0fe; border-radius: 15px; }
+        .question-image { margin: 20px 0; text-align: center; background: #f0f4fa; padding: 20px; border-radius: 20px; border: 2px dashed #132433; position: relative; min-height: 100px; }
+        .question-image img { max-width: 100%; max-height: 300px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); margin: 0 auto; display: block; }
+        .image-placeholder { color: #5f6b7a; font-style: italic; padding: 30px; background: #e8f0fe; border-radius: 15px; text-align: center; }
         .options { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
         .option-item { display: flex; align-items: center; gap: 20px; background: white; padding: 15px 30px; border-radius: 60px; border: 2px solid #e0e7ef; cursor: pointer; font-size: 1.1rem; transition: 0.3s; }
         .option-item:hover { border-color: #132433; background: #e8f0fe; }
@@ -1187,11 +1187,40 @@
             let html = `<div class="question-block">
                 <div class="question-text">${index+1}. ${q.text}</div>`;
             
-            // Tampilkan gambar jika ada
+            // Tampilkan gambar jika ada - dengan multiple format
             if (q.image) {
-                html += `<div class="question-image">
-                    <div class="image-placeholder">[Gambar: ${q.imageDesc || 'Ilustrasi'}]</div>
-                </div>`;
+                html += `<div class="question-image">`;
+                
+                // Coba beberapa kemungkinan format file
+                const formats = ['png', 'jpg', 'jpeg', 'gif'];
+                const basePath = `assets/images/set${selectedPackage}_soal${index+1}`;
+                
+                formats.forEach(format => {
+                    html += `<img src="${basePath}.${format}" 
+                             alt="${q.imageDesc || 'Gambar soal'}" 
+                             style="display: none;" 
+                             onload="this.style.display='block';"
+                             onerror="this.remove();">`;
+                });
+                
+                // Placeholder jika semua gambar gagal
+                html += `<div class="image-placeholder" id="placeholder-${index}">📊 [Gambar: ${q.imageDesc || 'Ilustrasi'}]</div>`;
+                html += `</div>`;
+                
+                // Script untuk menampilkan placeholder jika semua gambar gagal
+                html += `<script>
+                    setTimeout(function() {
+                        const imgs = document.querySelectorAll('.question-image img');
+                        const placeholder = document.getElementById('placeholder-${index}');
+                        let anyLoaded = false;
+                        imgs.forEach(img => {
+                            if (img.style.display === 'block') anyLoaded = true;
+                        });
+                        if (!anyLoaded && placeholder) {
+                            placeholder.style.display = 'block';
+                        }
+                    }, 500);
+                <\/script>`;
             }
             
             html += `<div class="options">`;
