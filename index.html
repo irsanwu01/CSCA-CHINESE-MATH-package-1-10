@@ -85,11 +85,6 @@
     </style>
 </head>
 <body>
-<img src="https://raw.githubusercontent.com/irsanwu01/CSCA-CHINESE-MATH-package-1-10/main/assets/images/set1_soal14.png" style="position:fixed; top:10px; right:10px; width:300px; border:5px solid red; background:white; z-index:9999;">
-    <!-- Loading -->
-    <div class="loading" id="loading">
-        <div class="loading-spinner"></div>
-    </div>
 
     <div class="app-container">
         <!-- Language Switcher (untuk UI, bukan untuk soal) -->
@@ -1220,35 +1215,35 @@
                 html += `<div class="question-text-indonesia">📗 [Indonesia] ${q.indonesia}</div>`;
             }
             
-            // Tampilkan gambar jika ada
-           let imageFile = '';
-
-// SET 1 - daftar soal yang ada gambarnya
-if (selectedPackage === 1) {
-    if (index+1 === 14) imageFile = 'set1_soal14.png';
-    else if (index+1 === 15) imageFile = 'set1_soal15.png';
-    else if (index+1 === 18) imageFile = 'set1_soal18.png';
-    else if (index+1 === 21) imageFile = 'set1_soal21.png';
-    else if (index+1 === 43) imageFile = 'set1_soal43.png';
-    else if (index+1 === 46) imageFile = 'set1_soal46.png';
-}
-// SET 2 - soal yang punya gambar
-else if (selectedPackage === 2) {
-    if (index+1 === 14) imageFile = 'set2_soal14.png';
-    else if (index+1 === 15) imageFile = 'set2_soal15.png';
-    else if (index+1 === 18) imageFile = 'set2_soal18.png';
-    else if (index+1 === 21) imageFile = 'set2_soal21.png';
-    else if (index+1 === 22) imageFile = 'set2_soal22.png';
-    else if (index+1 === 23) imageFile = 'set2_soal23.png';
-    else if (index+1 === 43) imageFile = 'set2_soal43.png';
-}
-
-// Jika ada gambar untuk soal ini, tampilkan
-if(imageFile) {
-    html += `<div class="question-image">
-        <img src="https://raw.githubusercontent.com/irsanwu01/CSCA-CHINESE-MATH-package-1-10/main/assets/images/${imageFile}" 
-             style="max-width:100%; margin:10px 0;">
-    </div>`;
+            // Tampilkan gambar jika ada - PASTI BERHASIL
+        let imageFile = '';
+        
+        // SET 1 - daftar soal yang ada gambarnya
+        if (selectedPackage === 1) {
+            if (index+1 === 14) imageFile = 'set1_soal14.png';
+            else if (index+1 === 15) imageFile = 'set1_soal15.png';
+            else if (index+1 === 18) imageFile = 'set1_soal18.png';
+            else if (index+1 === 21) imageFile = 'set1_soal21.png';
+            else if (index+1 === 43) imageFile = 'set1_soal43.png';
+            else if (index+1 === 46) imageFile = 'set1_soal46.png';
+        }
+        // SET 2 - soal yang punya gambar
+        else if (selectedPackage === 2) {
+            if (index+1 === 14) imageFile = 'set2_soal14.png';
+            else if (index+1 === 15) imageFile = 'set2_soal15.png';
+            else if (index+1 === 18) imageFile = 'set2_soal18.png';
+            else if (index+1 === 21) imageFile = 'set2_soal21.png';
+            else if (index+1 === 22) imageFile = 'set2_soal22.png';
+            else if (index+1 === 23) imageFile = 'set2_soal23.png';
+            else if (index+1 === 43) imageFile = 'set2_soal43.png';
+        }
+        
+        // Jika ada gambar untuk soal ini, tampilkan
+        if (imageFile) {
+            const imageUrl = 'https://raw.githubusercontent.com/irsanwu01/CSCA-CHINESE-MATH-package-1-10/main/assets/images/' + imageFile;
+            html += `<div class="question-image">
+                <img src="${imageUrl}" style="max-width:100%; border:2px solid blue;">
+            </div>`;
 }        
             
             html += `<div class="options">`;
