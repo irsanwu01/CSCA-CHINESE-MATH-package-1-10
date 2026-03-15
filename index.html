@@ -1221,11 +1221,37 @@
             
             // Tampilkan gambar jika ada
             if (q.image) {
-                const imagePath = `assets/images/set${selectedPackage}_soal${index+1}.png`;
-                html += `<div class="question-image">
-                    <img src="${imagePath}" alt="${q.imageDesc || 'Gambar soal'}" 
-                         onerror="this.style.display='none'; this.parentElement.innerHTML+='<div class=\'image-placeholder\'>[Gambar: ${q.imageDesc || 'Ilustrasi'}]</div>';">
-                </div>`;
+                // Tampilkan gambar sesuai file yang ada di folder
+let imageFile = '';
+
+// SET 1 - soal yang punya gambar
+if (selectedPackage === 1) {
+    if (index+1 === 14) imageFile = 'set1_soal14.png';
+    else if (index+1 === 15) imageFile = 'set1_soal15.png';
+    else if (index+1 === 18) imageFile = 'set1_soal18.png';
+    else if (index+1 === 21) imageFile = 'set1_soal21.png';
+    else if (index+1 === 43) imageFile = 'set1_soal43.png';
+    else if (index+1 === 46) imageFile = 'set1_soal46.png';
+}
+// SET 2 - soal yang punya gambar
+else if (selectedPackage === 2) {
+    if (index+1 === 14) imageFile = 'set2_soal14.png';
+    else if (index+1 === 15) imageFile = 'set2_soal15.png';
+    else if (index+1 === 18) imageFile = 'set2_soal18.png';
+    else if (index+1 === 21) imageFile = 'set2_soal21.png';
+    else if (index+1 === 22) imageFile = 'set2_soal22.png';
+    else if (index+1 === 23) imageFile = 'set2_soal23.png';
+    else if (index+1 === 43) imageFile = 'set2_soal43.png';
+}
+
+// Jika ada gambar untuk soal ini, tampilkan
+if (imageFile) {
+    const imagePath = `assets/images/${imageFile}`;
+    html += `<div class="question-image">
+        <img src="${imagePath}" alt="Gambar soal ${index+1}" 
+             onerror="this.style.display='none'; this.parentElement.innerHTML+='<div class=\\'image-placeholder\\'>[Gambar: ${imageFile} tidak ditemukan]</div>'; console.log('Gambar tidak ditemukan:', '${imagePath}');">
+    </div>`;
+}
             }
             
             html += `<div class="options">`;
