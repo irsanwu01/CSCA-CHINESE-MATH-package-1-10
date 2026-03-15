@@ -1243,12 +1243,11 @@ else if (selectedPackage === 2) {
 }
 
 // Jika ada gambar untuk soal ini, tampilkan
-if (imageFile) {
+if(imageFile){
     const imagePath = `https://raw.githubusercontent.com/irsanwu01/CSCA-CHINESE-MATH-package-1-10/main/assets/images/${imageFile}`;
-   html += `<div class="question-image">
-    <img src="${imagePath}" alt="Gambar soal ${index+1}" 
-         onerror="this.onerror=null; this.parentElement.innerHTML+='<div class=\\'image-placeholder\\'>[Gambar tidak ditemukan]</div>';">
-</div>`;
+    html += `<div class="question-image">
+        <img src="${imagePath}" alt="Gambar soal ${index+1}" style="max-width:100%; border:1px solid #ccc; padding:5px;">
+    </div>`;
 }
             }
             
