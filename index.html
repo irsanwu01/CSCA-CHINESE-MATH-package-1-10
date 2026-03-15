@@ -85,7 +85,6 @@
     </style>
 </head>
 <body>
-    <!-- PAKSA TAMPIL GAMBAR SOAL 14 -->
 <img src="https://raw.githubusercontent.com/irsanwu01/CSCA-CHINESE-MATH-package-1-10/main/assets/images/set1_soal14.png" style="position:fixed; top:10px; right:10px; width:300px; border:5px solid red; background:white; z-index:9999;">
     <!-- Loading -->
     <div class="loading" id="loading">
@@ -1245,10 +1244,10 @@ else if (selectedPackage === 2) {
 }
 
 // Jika ada gambar untuk soal ini, tampilkan
-if(imageFile){
-    const imagePath = `https://raw.githubusercontent.com/irsanwu01/CSCA-CHINESE-MATH-package-1-10/main/assets/images/${imageFile}`;
+if(imageFile) {
     html += `<div class="question-image">
-        <img src="${imagePath}" alt="Gambar soal ${index+1}" style="max-width:100%; border:1px solid #ccc; padding:5px;">
+        <img src="https://raw.githubusercontent.com/irsanwu01/CSCA-CHINESE-MATH-package-1-10/main/assets/images/${imageFile}" 
+             style="max-width:100%; margin:10px 0;">
     </div>`;
 }        
             
